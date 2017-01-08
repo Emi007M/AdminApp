@@ -16,8 +16,8 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import adminapp.model.CurrentTournament;
 import adminapp.model.Dictionary;
-import adminapp.model.Tournament;
-import adminapp.model.Serializator;
+import serializable.model.Tournament;
+import serializable.model.Serializator;
 import adminapp.presentation.RootLayoutController;
 
 /**
@@ -39,14 +39,14 @@ public class Main extends Application {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle(Dictionary.getString("window-title"));
 
-        initRootLayout();
+        
 
         //showChartMaker();
 //        Tournament t = new Tournament("Zawody testowe", new Date(2017,2,15));
 //        t.init();
 //        Serializator.writeToFile(t, "tournaments/tournament1");
         initBoard(0);
-
+        initRootLayout();
     }
 
     public void initRootLayout() {
@@ -79,10 +79,10 @@ public class Main extends Application {
 //        Tournament t = new Tournament("tytuł", new Date(2016,12,12));
 //        t.init();
 //        Serializator.writeToFile(t,"tournaments/tournament3");
-        CurrentTournament.setTournament((Tournament) Serializator.readFromFile("tournaments/tournament3"));
+        CurrentTournament.setTournament((Tournament) Serializator.readFromFile("tournaments/tournament4"));
 
 
-        mainController.init();
+       // mainController.init();
 
     }
 

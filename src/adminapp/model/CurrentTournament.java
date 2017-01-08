@@ -5,6 +5,8 @@
  */
 package adminapp.model;
 
+import serializable.model.Tournament;
+import serializable.model.Competition;
 import java.util.ArrayList;
 
 /**

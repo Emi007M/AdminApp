@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package adminapp.model;
+package serializable.model;
 
+import adminapp.model.Dictionary;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;

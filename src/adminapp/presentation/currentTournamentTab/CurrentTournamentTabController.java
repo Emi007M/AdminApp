@@ -15,7 +15,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
-import adminapp.model.Competition;
+import serializable.model.Competition;
 import adminapp.model.CurrentTournament;
 import adminapp.presentation.LayoutBaseController;
 import adminapp.presentation.RootLayoutController;
@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 
 /**
@@ -33,10 +34,12 @@ import javafx.scene.layout.FlowPane;
 public class CurrentTournamentTabController extends LayoutBaseController {
 
 
+    @FXML
+    private Label nameLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //  titleLabel.setText(CurrentTournament.getTournamentTitle());
+          nameLabel.setText(CurrentTournament.getTournamentTitle());
        
         init();
 

@@ -17,7 +17,7 @@ import javafx.scene.Node;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
-import adminapp.model.Competition;
+import serializable.model.Competition;
 import adminapp.model.CurrentTournament;
 import adminapp.presentation.currentTournamentTab.CurrentTournamentTabController;
 import adminapp.presentation.manageTournamentsTab.ManageTournamentsTabController;
@@ -74,7 +74,7 @@ public class RootLayoutController implements Initializable {
 
     public void init() {
         System.out.println("adminapp.presentation.RootLayoutController.init()");
-       
+       currentTournamentController.init();
     }
     
     
