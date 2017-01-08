@@ -1,5 +1,6 @@
 package adminapp.presentation.currentTournamentTab;
 
+import adminapp.presentation.currentTournamentTab.views.ContestantsController;
 import com.sun.javafx.scene.control.skin.TableHeaderRow;
 import java.net.URL;
 import java.util.ArrayList;
@@ -20,6 +21,8 @@ import adminapp.model.CurrentTournament;
 import adminapp.presentation.LayoutBaseController;
 import adminapp.presentation.RootLayoutController;
 import adminapp.presentation.ViewBaseController;
+import adminapp.presentation.currentTournamentTab.views.ManageBoardsController;
+import adminapp.presentation.currentTournamentTab.views.StartingListsController;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -91,11 +94,41 @@ public class CurrentTournamentTabController extends LayoutBaseController {
     protected void setContestants(){
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Contestants.fxml"));
+            loader.setLocation(getClass().getResource("views/Contestants.fxml"));
             mainFlow.getChildren().clear();
             mainFlow.getChildren().setAll((FlowPane)loader.load());
             
             ContestantsController controller = (ContestantsController) loader.getController();
+            controller.setTabController(this);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(CurrentTournamentTabController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    protected void setStartingLists(){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("views/StartingLists.fxml"));
+            mainFlow.getChildren().clear();
+            mainFlow.getChildren().setAll((FlowPane)loader.load());
+            
+            StartingListsController controller = (StartingListsController) loader.getController();
+            controller.setTabController(this);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(CurrentTournamentTabController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    protected void setManageBoards(){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("views/ManageBoards.fxml"));
+            mainFlow.getChildren().clear();
+            mainFlow.getChildren().setAll((FlowPane)loader.load());
+            
+            ManageBoardsController controller = (ManageBoardsController) loader.getController();
             controller.setTabController(this);
             
         } catch (IOException ex) {

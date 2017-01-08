@@ -1,12 +1,16 @@
 package adminapp.presentation;
 
 import adminapp.presentation.currentTournamentTab.*;
+import de.jensd.fx.glyphs.GlyphIcons;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
+import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.scene.text.Text;
 
 /**
  *
@@ -41,6 +45,9 @@ public abstract class ViewBaseController implements Initializable {
     }
     
     protected void setBackBtn(){
+        gobackBtn.getStyleClass().add("icons");
+        gobackBtn.setText("\uf053");
         gobackBtn.setOnAction(e->tabController.init());
+        System.out.println("adminapp.presentation.ViewBaseController.setBackBtn()");
     }
 }

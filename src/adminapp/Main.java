@@ -30,6 +30,10 @@ public class Main extends Application {
     public BorderPane rootLayout;
     private RootLayoutController mainController;
 
+//    static {
+//        Font.loadFont(Main.class.getResource("/font/fontawesome-webfont.ttf").toExternalForm(), 10);
+//    }
+    
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -56,6 +60,7 @@ public class Main extends Application {
             Font.loadFont(Main.class.getResource("presentation/resources/fonts/Toxia_FRE.ttf").toExternalForm(), 10);
             Font.loadFont(Main.class.getResource("presentation/resources/fonts/phagspa.ttf").toExternalForm(), 10);
             Font.loadFont(Main.class.getResource("presentation/resources/fonts/phagspab.ttf").toExternalForm(), 10);
+            Font.loadFont(Main.class.getResource("presentation/resources/fonts/fontawesome-webfont.ttf").toExternalForm(), 10);
 
             // Load root layout from fxml file.            
             FXMLLoader loader = new FXMLLoader();

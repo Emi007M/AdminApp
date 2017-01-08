@@ -36,7 +36,14 @@ public final class CurrentTournament {
     public static ArrayList<Competition> getTournamentCompetitions(Integer boardID){
         return tournament.getCompetitionsForBoard(boardID);
     }
-    
+    public static ArrayList<Competition> getTournamentCompetitions(){
+        return tournament.getCompetitions();
+    }
+    public static Competition getCompetition(Integer id){
+        for(Competition c : tournament.getCompetitions())
+            if(c.getID().equals(id))return c;
+        return null;
+    }
     
     
     public static void setCurrentCompetition(Competition c){

@@ -1,4 +1,4 @@
-package adminapp.presentation.currentTournamentTab;
+package adminapp.presentation.currentTournamentTab.views;
 
 import com.sun.javafx.scene.control.skin.TableHeaderRow;
 import java.net.URL;
@@ -29,7 +29,7 @@ import javafx.scene.layout.FlowPane;
  *
  * @author Emilia
  */
-public class ContestantsController extends ViewBaseController {
+public class ManageBoardsController extends ViewBaseController {
     
    
 

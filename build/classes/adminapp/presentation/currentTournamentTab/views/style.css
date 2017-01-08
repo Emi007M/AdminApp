@@ -1,0 +1,39 @@
+#bracket-chart .label {
+    -fx-text-fill: black;
+       -fx-font-size: 16;
+}
+#bracket-chart .label.club {
+    -fx-text-fill: black;
+       -fx-font-size: 14;
+}
+#bracket-chart .title {
+        -fx-text-fill: black;
+       -fx-font-size: 20;
+       -fx-font-weight: bold;
+}
+
+
+#bracket-chart .lvl {
+    -fx-stroke: #555;
+    -fx-font-size: 12;
+}
+
+.redSquare {
+    -fx-fill: #c00;
+    -fx-stroke: #ccc;
+    -fx-stroke-width:1;
+}
+.whiteSquare {
+    -fx-fill: #fff;
+    -fx-stroke: #ccc;
+    -fx-stroke-width:1;
+}
+.line {
+    -fx-stroke: #333;
+}
+.dotted-line {
+    -fx-stroke: #555;
+}
+.label {
+ 
+}

@@ -28,3 +28,32 @@
             -fx-text-fill: #fff;
 }
 
+.label {
+        -fx-text-fill: #fff;
+}
+.label#titleLabel {
+        -fx-text-fill: #f2eb1f;
+        -fx-font-weight: bold;
+        -fx-font-size: 36;
+}
+
+
+.icons{
+    -fx-font-family: FontAwesome;
+    -fx-font-size: 16px;
+  }
+.button.icons {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+#gobackBtn {
+    -fx-cursor: hand;
+    -fx-text-align: right;
+    -fx-pref-width:50;
+    -fx-font-size: 16;
+    -fx-opacity: 0.7;
+}
+#gobackBtn:hover {
+    -fx-font-size: 20;
+    -fx-opacity:0.9;
+}

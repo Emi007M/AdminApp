@@ -40,36 +40,7 @@ public class Chart implements Serializable{
     int matchesTotal;
     int matchesPlayed = 0;
     
-//    
-//    public Chart(){
-//        this(4);
-//    }
-//    
-    //do usiniecia XXXX, razem z Athletes
-    /**
-     * 
-     * @param x number of pre-ranked athletes
-     */
-//    public Chart(int x){
-//        ArrayList <Node> athletes = new ArrayList<>();
-//        
-//        Athletes a = new Athletes();
-//        
-//        int amount = a.getCompetitors().size();
-//        for(int i=0; i< amount; i++)
-//            athletes.add(new Node(a.getCompetitors().get(i)));
-//        
-//        //mix list      
-//        randomizeList(athletes, x);
-//        
-//        //list should be already mixed with priviliged athletes on top positions
-//        //now generate matches
-//        if(x>=4 && a.isTwoThirdPlaces())
-//            InitializeMatches(athletes, x, true);
-//        else
-//            InitializeMatches(athletes, x, false);
-//    }
-    
+
     public Chart(int x, ArrayList<Person> a, boolean isTwoThirdPlaces){
         ArrayList <Node> athletes = new ArrayList<>();
         
@@ -118,14 +89,7 @@ public class Chart implements Serializable{
         
         int firstDepthMatches = (int) Math.pow(2,(height-1)); //for 5-8 athletes there are 4 matches in a first row
         int roundedAthletes = (int) Math.pow(2,(height));    //for 9-16 athletes rounded value is 16
-        
-//        if(roundedAthletes > athletes.size()){ //add empty players to the size of the power of 2
-//            int emptys = roundedAthletes-athletes.size();
-//            for(int i=0;i<emptys;i++)
-//                athletes.add(new Node());
-//        }
-        
-        
+
         
         
         

@@ -71,12 +71,13 @@ public class PrimaryBtnSetController extends ViewBaseController {
     @FXML
     private void handleListsBtn() {
         System.out.println("lists btn clicked...");
+        tabController.setStartingLists();
 
     }
     @FXML
     private void handleBoardsBtn() {
         System.out.println("boards btn clicked...");
-
+        tabController.setManageBoards();
     }
     
     @FXML

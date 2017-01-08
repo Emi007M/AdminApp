@@ -236,7 +236,7 @@ public class Competition implements Serializable{
     }
     
     
-    public int getPlayersAmount(){//TODO  zgadza się tylko jeśli wszyscy preranked należą do competitors 
+    public Integer getPlayersAmount(){//TODO  zgadza się tylko jeśli wszyscy preranked należą do competitors 
         return competitors.size();
     }
     
