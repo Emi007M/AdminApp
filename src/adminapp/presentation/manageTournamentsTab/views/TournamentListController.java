@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package adminapp.presentation.manageTournamentsTab;
+package adminapp.presentation.manageTournamentsTab.views;
 
 import adminapp.presentation.ViewBaseController;
 import java.net.URL;
@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
  *
  * @author Emilia
  */
-public class NewTournamentController extends ViewBaseController{
+public class TournamentListController extends ViewBaseController{
    
     @Override
     public void initialize(URL location, ResourceBundle resources) {

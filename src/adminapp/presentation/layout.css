@@ -32,7 +32,7 @@
         -fx-text-fill: #fff;
 }
 .label#titleLabel {
-        -fx-text-fill: #f2eb1f;
+        -fx-text-fill: #146eff;
         -fx-font-weight: bold;
         -fx-font-size: 36;
 }
@@ -49,11 +49,32 @@
 #gobackBtn {
     -fx-cursor: hand;
     -fx-text-align: right;
-    -fx-pref-width:50;
+    -fx-pref-width:40;
+    -fx-padding:1;
     -fx-font-size: 16;
     -fx-opacity: 0.7;
 }
 #gobackBtn:hover {
     -fx-font-size: 20;
     -fx-opacity:0.9;
+}
+
+HBox {
+    -fx-alignment: center ;
+    -fx-padding: 10 ;
+}
+
+
+
+.jfx-tab-pane .tab-header-area .jfx-rippler{
+    -fx-rippler-fill:#173d7a;
+}
+
+.jfx-tab-pane .tab-header-background{
+    -fx-background-color:#111;
+}
+
+.jfx-tab-pane .tab-selected-line {
+    -fx-stroke: #1b57b7;
+    -fx-stroke-width: 3pt;
 }

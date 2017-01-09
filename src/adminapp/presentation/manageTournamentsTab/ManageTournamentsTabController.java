@@ -5,6 +5,8 @@
  */
 package adminapp.presentation.manageTournamentsTab;
 
+import adminapp.presentation.manageTournamentsTab.views.TournamentListController;
+import adminapp.presentation.manageTournamentsTab.views.NewTournamentController;
 import com.sun.javafx.scene.control.skin.TableHeaderRow;
 import java.net.URL;
 import java.util.ArrayList;
@@ -76,7 +78,7 @@ public class ManageTournamentsTabController extends LayoutBaseController {
     protected void setTournamentList() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("TournamentList.fxml"));
+            loader.setLocation(getClass().getResource("views/TournamentList.fxml"));
             mainFlow.getChildren().clear();
             mainFlow.getChildren().setAll((FlowPane) loader.load());
 
@@ -91,7 +93,7 @@ public class ManageTournamentsTabController extends LayoutBaseController {
     protected void setNewTournament() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("NewTournament.fxml"));
+            loader.setLocation(getClass().getResource("views/NewTournament.fxml"));
             mainFlow.getChildren().clear();
             mainFlow.getChildren().setAll((FlowPane) loader.load());
 

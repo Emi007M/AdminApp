@@ -10,6 +10,7 @@ import javafx.scene.text.TextFlow;
 import serializable.model.Competition;
 import adminapp.model.CurrentTournament;
 import adminapp.presentation.ViewBaseController;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXToggleButton;
 import static javafx.application.Platform.runLater;
 import javafx.print.PageLayout;
@@ -52,17 +53,26 @@ public class StartingListsController extends ViewBaseController {
         ArrayList<Node> tList = new ArrayList<>();
 
         for (Competition c : CurrentTournament.getTournamentCompetitions()) {
-            Text id = new Text(c.getID().toString());
-            Text title = new Text(c.getTitle());
+   
+            Text title = new Text(c.getID().toString()+". "+c.getTitle());  
+            
             Text descr = new Text(c.getDescr());
-            Text competitors = new Text(c.getPlayersAmount().toString());
-
-            TextFlow t = new TextFlow(id, title, descr, competitors);
-            Button seeChart = new Button("see chart");
+            
+            Text competitors = new Text("Contestants: "+c.getPlayersAmount().toString()+"     ");
+            JFXButton seeChart = new JFXButton("PRINT BRACKETS");
             seeChart.setOnAction(e -> handleSeeChartBtn(c.getID()));
-            t.getChildren().add(seeChart);
+            TextFlow t2 = new TextFlow(competitors, seeChart);
+            
+            VBox container = new VBox(title,descr, t2);
+            
+            title.getStyleClass().add("startingList-top");
+            descr.getStyleClass().add("startingList-middle");
+            competitors.getStyleClass().add("startingList-bottom");
+            seeChart.getStyleClass().add("startingList-bottom");
+            container.getStyleClass().add("startingList-container");
+            
 
-            tList.add(t);
+            tList.add(container);
 
         }
 
