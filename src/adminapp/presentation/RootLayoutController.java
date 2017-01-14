@@ -22,6 +22,7 @@ import adminapp.model.CurrentTournament;
 import adminapp.presentation.currentTournamentTab.CurrentTournamentTabController;
 import adminapp.presentation.manageTournamentsTab.ManageTournamentsTabController;
 import adminapp.presentation.settingsTab.SettingsTabController;
+import javafx.stage.Stage;
 
 /**
  *
@@ -29,6 +30,8 @@ import adminapp.presentation.settingsTab.SettingsTabController;
  */
 public class RootLayoutController implements Initializable {
 
+    private Stage primaryStage;
+    
     @FXML
     TabPane tabs;
 
@@ -44,6 +47,7 @@ public class RootLayoutController implements Initializable {
 
     
     boolean initialized = false;
+    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -55,6 +59,7 @@ public class RootLayoutController implements Initializable {
             FXMLLoader loader1 = new FXMLLoader(getClass().getResource("currentTournamentTab/CurrentTournamentTab.fxml"));
             tabs.getTabs().get(1).setContent(loader1.load());
             currentTournamentController = loader1.getController();
+            currentTournamentController.setRootController(this);
 
             FXMLLoader loader2 = new FXMLLoader(getClass().getResource("settingsTab/SettingsTab.fxml"));
             tabs.getTabs().get(2).setContent(loader2.load());
@@ -76,7 +81,14 @@ public class RootLayoutController implements Initializable {
         System.out.println("adminapp.presentation.RootLayoutController.init()");
        currentTournamentController.init();
     }
+
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
     
+    public Stage getPrimaryStage(){
+        return primaryStage;
+    }
     
     
   

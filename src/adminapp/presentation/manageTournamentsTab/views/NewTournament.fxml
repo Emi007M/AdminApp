@@ -25,6 +25,8 @@
                <children>
                   <JFXTextField fx:id="nameField" labelFloat="true" promptText="Tournament Name" />
                   <JFXDatePicker fx:id="dateField" defaultColor="#4059a9" promptText="pick date" />
+                  <JFXTextField fx:id="placeField" labelFloat="true" promptText="Place" />
+                  
                   <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="600.0">
                      <children>
                         <Label text="Competitions" />

@@ -74,6 +74,9 @@ public class Main extends Application {
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();
+            
+            
+            mainController.setPrimaryStage(primaryStage);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -84,19 +87,19 @@ public class Main extends Application {
 //        Tournament t = new Tournament("tytuł", new Date(2016,12,12));
 //        t.init();
 //        Serializator.writeToFile(t,"tournaments/tournament3");
-        CurrentTournament.setTournament((Tournament) Serializator.readFromFile("tournaments/tournament4"));
+      //  CurrentTournament.setTournament((Tournament) Serializator.readFromFile("tournaments/t_2016-06-20"));
 
 
        // mainController.init();
 
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
-
-    }
+//    /**
+//     * @param args the command line arguments
+//     */
+//    public static void main(String[] args) {
+//        launch(args);
+//
+//    }
 
 }

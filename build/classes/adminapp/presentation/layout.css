@@ -1,17 +1,17 @@
 .root {
-	/* -fx-background-color: #1f41bf;
-         -fx-background-color: radial-gradient(center 50% 25% , radius 90% , #1f41bf, #0f117f); */
-         -fx-background-image: url('resources/images/bg1.jpg'), url('resources/images/bg2.png');
-         -fx-background-position: center, top right;
-         -fx-background-repeat: no-repeat, no-repeat;
-         -fx-background-size: auto, auto 100%;
-          
+    /* -fx-background-color: #1f41bf;
+     -fx-background-color: radial-gradient(center 50% 25% , radius 90% , #1f41bf, #0f117f); */
+    -fx-background-image: url('resources/images/bg1.jpg'), url('resources/images/bg2.png');
+    -fx-background-position: center, top right;
+    -fx-background-repeat: no-repeat, no-repeat;
+    -fx-background-size: auto, auto 100%;
+
 }
 .button.btnTile {
-        -fx-pref-width: 150px;
+    -fx-pref-width: 150px;
     -fx-pref-height: 150px;  
     -fx-background-color: rgba(0,200,0,0);
-    
+
     -fx-border-color: #ccc;
     -fx-border-width: 5;
     -fx-stroke-line-cup: butt;
@@ -20,28 +20,28 @@
     -fx-text-fill: #fff;
     -fx-font-weight: bold;
     -fx-font-size: 20;
-    
+
 }
 .button.btnTile:hover {
     -fx-opacity: 1.0;
-        -fx-background-color: rgba(255,255,255,0.1);
-            -fx-text-fill: #fff;
+    -fx-background-color: rgba(255,255,255,0.1);
+    -fx-text-fill: #fff;
 }
 
 .label {
-        -fx-text-fill: #fff;
+    -fx-text-fill: #fff;
 }
 .label#titleLabel {
-        -fx-text-fill: #146eff;
-        -fx-font-weight: bold;
-        -fx-font-size: 36;
+    -fx-text-fill: #146eff;
+    -fx-font-weight: bold;
+    -fx-font-size: 36;
 }
 
 
 .icons{
     -fx-font-family: FontAwesome;
     -fx-font-size: 16px;
-  }
+}
 .button.icons {
     -fx-background-color: transparent;
     -fx-text-fill: white;
@@ -77,4 +77,42 @@ HBox {
 .jfx-tab-pane .tab-selected-line {
     -fx-stroke: #1b57b7;
     -fx-stroke-width: 3pt;
+}
+
+
+
+
+/*choose tournament view*/
+
+.button.tournamentBtn {
+    -fx-pref-width: 600px;
+    -fx-pref-height: 50px;  
+    -fx-background-color: rgba(0,200,0,0);
+
+    -fx-border-color: #ccc;
+    -fx-border-width: 5;
+    -fx-stroke-line-cup: butt;
+    -fx-cursor: hand;
+    -fx-opacity: 0.8;
+    -fx-text-fill: #fff;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+
+}
+.button.tournamentBtn:hover {
+    -fx-opacity: 1.0;
+    -fx-background-color: rgba(255,255,255,0.1);
+
+}
+
+.button.tournamentBtn.current {
+    
+    -fx-border-color: blue;
+   
+
+}
+.button.tournamentBtn.current:hover {
+    -fx-opacity: 0.8;
+    -fx-background-color: rgba(255,255,255,0);
+
 }

@@ -41,5 +41,9 @@ public abstract class LayoutBaseController implements Initializable {
     public void setRootController(RootLayoutController r) {
         rootController = r;
     }
+    
+    public RootLayoutController getRootLayoutController(){
+        return rootController;
+    }
 
 }

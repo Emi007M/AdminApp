@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public final class CurrentTournament {
     
-    private static Tournament tournament;
+    private static Tournament tournament = null;
     private static Integer boardID;
     private static Competition currentCompetition;
     

@@ -21,6 +21,7 @@ import adminapp.model.CurrentTournament;
 import adminapp.presentation.LayoutBaseController;
 import adminapp.presentation.RootLayoutController;
 import adminapp.presentation.ViewBaseController;
+import adminapp.presentation.currentTournamentTab.views.ChooseTournamentController;
 import adminapp.presentation.currentTournamentTab.views.ManageBoardsController;
 import adminapp.presentation.currentTournamentTab.views.StartingListsController;
 import java.io.IOException;
@@ -42,7 +43,7 @@ public class CurrentTournamentTabController extends LayoutBaseController {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-          nameLabel.setText(CurrentTournament.getTournamentTitle());
+          
        
         init();
 
@@ -50,7 +51,14 @@ public class CurrentTournamentTabController extends LayoutBaseController {
 
     public void init() {
         //if sth then
-        setPrimaryBtnSet();
+        if(CurrentTournament.getTournament()==null){
+            setNullBtnSet();
+            nameLabel.setText("");
+        }
+        else{
+            setPrimaryBtnSet();        
+            nameLabel.setText(CurrentTournament.getTournamentTitle());
+        }
     }
 
 
@@ -101,6 +109,8 @@ public class CurrentTournamentTabController extends LayoutBaseController {
             ContestantsController controller = (ContestantsController) loader.getController();
             controller.setTabController(this);
             
+            controller.init();
+            
         } catch (IOException ex) {
             Logger.getLogger(CurrentTournamentTabController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -130,6 +140,22 @@ public class CurrentTournamentTabController extends LayoutBaseController {
             
             ManageBoardsController controller = (ManageBoardsController) loader.getController();
             controller.setTabController(this);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(CurrentTournamentTabController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    protected void setChooseTournament(){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("views/ChooseTournament.fxml"));
+            mainFlow.getChildren().clear();
+            mainFlow.getChildren().setAll((FlowPane)loader.load());
+            
+            ChooseTournamentController controller = (ChooseTournamentController) loader.getController();
+            controller.setTabController(this);
+            controller.updateList();
             
         } catch (IOException ex) {
             Logger.getLogger(CurrentTournamentTabController.class.getName()).log(Level.SEVERE, null, ex);

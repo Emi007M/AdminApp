@@ -41,22 +41,40 @@ public class Chart implements Serializable{
     int matchesPlayed = 0;
     
 
-    public Chart(int x, ArrayList<Person> a, boolean isTwoThirdPlaces){
+    public Chart(ArrayList<Person> a, boolean isTwoThirdPlaces){
+        //seed preranked players and put at front
+        ArrayList<Person> preranked = new ArrayList<>();
+        System.out.println(a.size());
+        
+        for (Person p : a) { 
+            if (p.getPreranked()) {
+                preranked.add(p);
+                a.remove(p);
+            }
+        }
+        ArrayList<Person> all = new ArrayList<>(preranked);
+        all.addAll(a);
+        
+        System.out.println(a.size());
+        System.out.println(all.size());
+        
+        //create nodes with athletes as a primary structure for matches
+        
         ArrayList <Node> athletes = new ArrayList<>();
         
-        int amount = a.size();
+        int amount = all.size();
         for(int i=0; i< amount; i++)
-            athletes.add(new Node(a.get(i)));
+            athletes.add(new Node(all.get(i)));
         
         //mix list      
-        randomizeList(athletes, x);
+        randomizeList(athletes, preranked.size());
         
         //list should be already mixed with priviliged athletes on top positions
         //now generate matches
-        if(x>=4 && isTwoThirdPlaces)
-            InitializeMatches(athletes, x, true);
+        if(preranked.size()>=4 && isTwoThirdPlaces)
+            InitializeMatches(athletes, preranked.size(), true);
         else
-            InitializeMatches(athletes, x, false);
+            InitializeMatches(athletes, preranked.size(), false);
     }
     
     public void addPlayerToLockedChart(Person p){
@@ -296,7 +314,8 @@ for(int i=0;i<roundedAthletes; i++)
         
         //create the rest of a chart
         if(firstMatches.size()>1) this.matches.addAll(generateWholeChart(firstMatches));
-        this.winner = this.matches.getLast();
+        if(this.matches.size()>0)
+            this.winner = this.matches.getLast();
         
         //fulfill empty matches
         winEmptyMatches();
@@ -317,7 +336,10 @@ for(int i=0;i<roundedAthletes; i++)
     private void randomizeList(ArrayList<Node> athletes, int favored) {
         
         List<Node> toshuffle = athletes.subList(favored, athletes.size());
-        athletes = new ArrayList<Node>(athletes.subList(0, favored-1));
+        if(favored>0)
+            athletes = new ArrayList<Node>(athletes.subList(0, favored-1));
+        else
+            athletes = new ArrayList<Node>();
         
         Collections.shuffle(toshuffle);
         athletes.addAll(toshuffle);

@@ -84,6 +84,10 @@ public class StartingListsController extends ViewBaseController {
 
         Competition tmp = CurrentTournament.getCompetition(id);
         ArrayList<serializable.model.Node> matches = tmp.getChart().getBracketMatches();
+        if(matches.size()==0){
+            tmp.initChart();
+            matches = tmp.getChart().getBracketMatches();
+        }
 
         String title = "Lista startowa nr "+tmp.getID()+". "+tmp.getTitle();
 

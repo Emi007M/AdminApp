@@ -13,7 +13,14 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.ObjectStreamClass;
 import java.io.Serializable;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.concurrent.locks.Lock;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.stream.Stream;
 
 /**
  *
@@ -82,6 +89,38 @@ public final class Serializator {
         return obj;
     }
 
-   
+    public static synchronized ArrayList<Serializable> readAllFromFolder(String folderName) {
+        ArrayList<Serializable> files = new ArrayList<>();
+
+        try (Stream<Path> paths = Files.walk(Paths.get(PATH + folderName))) {
+            paths.forEach(filePath -> {
+                if (Files.isRegularFile(filePath)) {
+                    // System.out.println(filePath.getFileName());
+
+                    Serializable obj = null;
+                    
+                    try {
+                        FileInputStream fis = new FileInputStream(filePath.toString());
+                        ObjectInputStream ois;
+                        ois = new ObjectInputStream(fis);
+                        obj = (Serializable) ois.readObject();
+                        ois.close();
+                        System.out.println("Object succesfully read from " + filePath.getFileName());
+                    } catch (Exception ex) {
+                        Logger.getLogger(Serializator.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
+                    if(obj != null)
+                        files.add(obj);
+            
+                }
+            });
+
+        } catch (IOException ex) {
+            Logger.getLogger(Serializator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return files;
+    }
 
 }

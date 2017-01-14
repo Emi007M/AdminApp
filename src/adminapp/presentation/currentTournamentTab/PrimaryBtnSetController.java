@@ -89,7 +89,7 @@ public class PrimaryBtnSetController extends ViewBaseController {
         @FXML
     private void handleChangeBtn() {
         System.out.println("change btn clicked...");
-
+        tabController.setChooseTournament();
     }
     
     

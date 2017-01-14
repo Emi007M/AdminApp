@@ -66,7 +66,7 @@ public class NullBtnSetController implements Initializable {
         @FXML
     private void handleChangeBtn() {
         System.out.println("change btn clicked...");
-
+        tabController.setChooseTournament();
     }
     
     

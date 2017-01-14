@@ -44,6 +44,8 @@ public class NewTournamentController extends ViewBaseController{
 
     @FXML
     private JFXDatePicker dateField;
+    @FXML
+    private JFXTextField placeField;
 
     @FXML
     private JFXTreeTableView<?> tableView;
@@ -100,7 +102,6 @@ public class NewTournamentController extends ViewBaseController{
             g.setId((idCounter).toString());
             JFXTextField id = (JFXTextField) g.getChildren().get(0);
             id.setText(idCounter.toString());
-            
             idCounter++;
             
             VBox.getChildren().add(g);
@@ -114,8 +115,13 @@ public class NewTournamentController extends ViewBaseController{
     @FXML
     private void handleSaveBtn() {
         System.out.println("save btn clicked");
-        Date date = new Date(dateField.getValue().getYear(), dateField.getValue().getMonthValue(), dateField.getValue().getDayOfMonth());
-        Tournament t = new Tournament(nameField.getText(), date);
+        //Date date = new Date(dateField.getValue().getYear(), dateField.getValue().getMonthValue(), dateField.getValue().getDayOfMonth());
+        LocalDate date = dateField.getValue();
+        
+        Tournament t = new Tournament(nameField.getText(), date, placeField.getText());
+        
+//        System.out.print(date2);
+//        System.out.println(t.getDateAsDashString());
         
         //add competitions
         ArrayList<Competition> competitions = new ArrayList<>();
@@ -130,9 +136,10 @@ public class NewTournamentController extends ViewBaseController{
             Competition c = new Competition();
             c.setTitle(name.getText());
             c.setDescr(descr.getText());
-            c.setID(Integer.getInteger(id.getText()));
+            c.setID(Integer.parseInt(id.getText()));
             c.setTwoThirdPlaces(true);
-            
+            c.setBoardID(1);
+            c.initChart();
             competitions.add(c);
         }
         
@@ -140,6 +147,7 @@ public class NewTournamentController extends ViewBaseController{
         
   
         //save to file
-        Serializator.writeToFile(t, "tournaments/t_"+dateField.getValue());
+        t.saveToFile();
+//        Serializator.writeToFile(t, "tournaments/t_"+dateField.getValue());
     }
 }

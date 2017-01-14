@@ -35,7 +35,7 @@ public class Competition implements Serializable {
 
     //private Athletes athletes;
     private ArrayList<Person> competitors;
-    private ArrayList<Person> prerankedCompetitors;
+ //   private ArrayList<Person> prerankedCompetitors;
     boolean twoThirdPlaces;
 
     private Chart chart;
@@ -60,6 +60,7 @@ public class Competition implements Serializable {
         isSent = false;
 
         competitors = new ArrayList<>();
+     //   prerankedCompetitors = new ArrayList<>();
         twoThirdPlaces = true;
 
         ID = -1;
@@ -152,6 +153,7 @@ public class Competition implements Serializable {
     }
 
     public void updateContestants() {
+        System.out.println("updating contestants");
         setContestants(competitors.size());
     }
 
@@ -188,9 +190,9 @@ public class Competition implements Serializable {
         return false;
     }
 
-    public boolean addPlayers(ArrayList<Person> list) {
+    public void addPlayers(ArrayList<Person> list) {
         if (!notStarted) {
-            return false;
+            return ;
         }
 
         int i = 0;
@@ -202,7 +204,8 @@ public class Competition implements Serializable {
         }
         System.out.println("added " + i + " players");
         updateContestants();
-        return true;
+        
+        System.out.println("serializable.model.Competition.addPlayers() finished succesfully");
     }
 
     public boolean removePlayer(Person p) {
@@ -224,9 +227,9 @@ public class Competition implements Serializable {
         return true;
     }
 
-    public void setPreRankedPlayers(ArrayList<Person> list) {
-        prerankedCompetitors = list;
-    }
+//    public void setPreRankedPlayers(ArrayList<Person> list) {
+//        prerankedCompetitors = list;
+//    }
 
     public boolean isTwoThirdPlaces() {
         return twoThirdPlaces;
@@ -240,17 +243,17 @@ public class Competition implements Serializable {
      * generates new chart with the use of previously given properties
      */
     public void initChart() {
-        int preranked = prerankedCompetitors.size();
+       // int preranked = prerankedCompetitors.size();
 
-        for (Person p : prerankedCompetitors) { //TODO gadza się tylko jeśli wszyscy podani jako preranked mają być wpisani
-            if (competitors.contains(p)) {
-                competitors.remove(p);
-            }
-        }
-        ArrayList all = new ArrayList(prerankedCompetitors);
-        all.addAll(competitors);
+//        for (Person p : prerankedCompetitors) { //TODO gadza się tylko jeśli wszyscy podani jako preranked mają być wpisani
+//            if (competitors.contains(p)) {
+//                competitors.remove(p);
+//            }
+//        }
+//        ArrayList all = new ArrayList(prerankedCompetitors);
+//        all.addAll(competitors);
 
-        chart = new Chart(preranked, all, twoThirdPlaces);
+        chart = new Chart(competitors, twoThirdPlaces);
 
         progress = new SimpleStringProperty();
         setProgress("chart done, 0/0");
@@ -307,15 +310,17 @@ public class Competition implements Serializable {
         this.competitors = competitors;
     }
 
-    public ArrayList<Person> getPrerankedCompetitors() {
-        return prerankedCompetitors;
-    }
-
-    public void setPrerankedCompetitors(ArrayList<Person> prerankedCompetitors) {
-        this.prerankedCompetitors = prerankedCompetitors;
-    }
+//    public ArrayList<Person> getPrerankedCompetitors() {
+//        return prerankedCompetitors;
+//    }
+//
+//    public void setPrerankedCompetitors(ArrayList<Person> prerankedCompetitors) {
+//        this.prerankedCompetitors = prerankedCompetitors;
+//    }
 
     public Chart getChart() {
+        if(chart==null)
+            initChart();
         return chart;
     }
 
