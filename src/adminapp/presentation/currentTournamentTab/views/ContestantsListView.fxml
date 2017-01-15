@@ -12,45 +12,50 @@
 <TitledPane fx:id="rootPane" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="20" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" text="List" 
             xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" 
             fx:controller="adminapp.presentation.currentTournamentTab.views.ContestantsListViewController">
-   <content>
-      <VBox>
-         <children>
-            <TableView fx:id="tableView" editable="true" prefHeight="300.0" prefWidth="774.0">
-              <columns>
-                <TableColumn fx:id="colClub" prefWidth="120.0" text="Club">
+    <content>
+        <VBox>
+            <children>
+                <TableView fx:id="tableView" editable="true" prefHeight="300.0" prefWidth="774.0">
+                    <columns>
+                        <TableColumn fx:id="colClub" minWidth="100.0" prefWidth="200.0" text="Club">
                             <cellValueFactory>
-                               <PropertyValueFactory property="club" />
-                              </cellValueFactory>
+                                <PropertyValueFactory property="club" />
+                            </cellValueFactory>
                         </TableColumn>
-                <TableColumn fx:id="colName" minWidth="0.0" prefWidth="176.0" text="Name">
+                        <TableColumn fx:id="colName" minWidth="50.0" prefWidth="150.0" text="Name">
                             <cellValueFactory>
-                               <PropertyValueFactory property="name" />
-                              </cellValueFactory>
+                                <PropertyValueFactory property="name" />
+                            </cellValueFactory>
                         </TableColumn>
-                  <TableColumn fx:id="colSurname" minWidth="0.0" prefWidth="304.0" text="Surname" >
+                        <TableColumn fx:id="colSurname" minWidth="100.0" prefWidth="200.0" text="Surname" >
                             <cellValueFactory>
-                               <PropertyValueFactory property="surname" />
-                              </cellValueFactory>
+                                <PropertyValueFactory property="surname" />
+                            </cellValueFactory>
                         </TableColumn>
-                  <TableColumn fx:id="colDegree" prefWidth="79.0" text="Degree" >
+                        <TableColumn fx:id="colDegree" minWidth="10.0" prefWidth="80.0" text="Degree" >
                             <cellValueFactory>
-                               <PropertyValueFactory property="degree" />
-                              </cellValueFactory>
+                                <PropertyValueFactory property="degree" />
+                            </cellValueFactory>
                         </TableColumn>
-                  <TableColumn fx:id="colYear" prefWidth="94.0" text="Year" >
+                        <TableColumn fx:id="colYear" minWidth="10.0" prefWidth="90.0" text="Year" >
                             <cellValueFactory>
-                               <PropertyValueFactory property="year" />
-                              </cellValueFactory>
+                                <PropertyValueFactory property="year" />
+                            </cellValueFactory>
                         </TableColumn>
-              </columns>
-            </TableView>
-            <ButtonBar prefHeight="40.0" prefWidth="200.0">
-              <buttons>
-                <Button fx:id="AddBtn" mnemonicParsing="false" text="Add single player" />
-                  <Button fx:id="removeBtn" mnemonicParsing="false" text="Remove player" />
-              </buttons>
-            </ButtonBar>
-         </children>
-      </VBox>
-   </content>
+                        <TableColumn fx:id="colRanked" minWidth="10.0" prefWidth="80.0" text="Ranked" >
+                            <cellValueFactory>
+                                <PropertyValueFactory property="rank" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+                <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                    <buttons>
+                        <Button fx:id="AddBtn" onAction="#handleAddBtn" mnemonicParsing="false" text="Add single player" />
+                        <Button fx:id="removeBtn" onAction="#handleRemoveBtn" mnemonicParsing="false" text="Remove player" />
+                    </buttons>
+                </ButtonBar>
+            </children>
+        </VBox>
+    </content>
 </TitledPane>

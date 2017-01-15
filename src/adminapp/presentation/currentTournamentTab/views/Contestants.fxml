@@ -9,7 +9,10 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 
-<FlowPane hgap="40.0" prefHeight="200.0" prefWidth="1000.0" vgap="40.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adminapp.presentation.currentTournamentTab.views.ContestantsController">
+<FlowPane prefHeight="200.0" prefWidth="1000.0" 
+          vgap="20.0" hgap="20.0"
+          xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" 
+          fx:controller="adminapp.presentation.currentTournamentTab.views.ContestantsController">
     <children>
         <HBox>
             <children>
@@ -22,10 +25,10 @@
         <buttons>
           <Button fx:id="generateFormBtn" mnemonicParsing="false" onAction="#handleGenerateFormBtn" text="Generate Application Form" />
             <Button fx:id="importFormBtn" mnemonicParsing="false" onAction="#handleImportFormBtn" text="Import Club Application" />
-            <Button fx:id="saveAllBtn" mnemonicParsing="false" onAction="#handleSaveChangesBtn" prefHeight="31.0" text="Save Changes" />
+            <Button fx:id="saveAllBtn" mnemonicParsing="false" onAction="#handleSaveChangesBtn" text="Save Changes" />
         </buttons>
       </ButtonBar>
-      <ScrollPane prefHeight="500.0" prefWidth="900.0">
+      <ScrollPane prefHeight="350.0" prefWidth="900.0">
          <content>
             <Accordion fx:id="accordion" />
          </content>

@@ -141,6 +141,8 @@ public class CurrentTournamentTabController extends LayoutBaseController {
             ManageBoardsController controller = (ManageBoardsController) loader.getController();
             controller.setTabController(this);
             
+            controller.init();
+            
         } catch (IOException ex) {
             Logger.getLogger(CurrentTournamentTabController.class.getName()).log(Level.SEVERE, null, ex);
         }

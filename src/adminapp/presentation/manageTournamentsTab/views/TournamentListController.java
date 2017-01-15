@@ -22,43 +22,42 @@ import serializable.model.Tournament;
  *
  * @author Emilia
  */
-public class TournamentListController extends ViewBaseController{
-   
+public class TournamentListController extends ViewBaseController {
+
     @FXML
     private JFXButton reloadBtn;
 
     @FXML
     private VBox VBox;
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-     setBackBtn();
+        setBackBtn();
     }
-    
-    @FXML
-    private void readAllTournaments(){
+
+    public void updateList() {
+        
+        VBox.getChildren().clear();
+        
         //get tournaments from folder
         ArrayList<Serializable> objs;
         objs = Serializator.readAllFromFolder("tournaments");
-        
-        
+
         //print tournaments
-        for(Serializable s : objs){
+        for (Serializable s : objs) {
             Tournament t = (Tournament) s;
-            
-            String date = t.getDate().toString();
-            
-            Label title = new Label("("+date+") "+t.getTitle());
+
+            Label title = new Label("(" + t.getDate() + ") " + t.getTitle());
             title.getStyleClass().add("tournamentTitleList");
-            
+
             VBox box = new VBox(title);
-            
-            for(Competition c : t.getCompetitions()){
-                box.getChildren().add(new Label(" - "+c.getTitle()));
+
+            for (Competition c : t.getCompetitions()) {
+                box.getChildren().add(new Label(" - " + c.getTitle()));
             }
-            
+
             VBox.getChildren().add(box);
-            
+
         }
     }
 }

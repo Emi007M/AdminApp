@@ -152,7 +152,15 @@ public class BracketView extends Region {
         Label s3 = new Label(shiroScore);
         s3.relocate(posX + distScore, posY + distY - textShift + 5);
         s3.getStyleClass().add("score");
+        
+        
+        //make ranked names bold
+        if(match.getAka() != null && match.getAka().getAthlete() != null && match.getAka().getAthlete().getRank()!=0)
+            a1.getStyleClass().add("ranked");
+        if(match.getShiro() != null && match.getShiro().getAthlete() != null && match.getShiro().getAthlete().getRank()!=0)
+            a1.getStyleClass().add("ranked");
 
+        
         Line l = new Line(posX, posY + distY - 15, posX + distScore + 20, posY + distY - 15);
         l.getStyleClass().add("line");
 

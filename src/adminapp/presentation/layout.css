@@ -1,15 +1,47 @@
 .root {
-    /* -fx-background-color: #1f41bf;
-     -fx-background-color: radial-gradient(center 50% 25% , radius 90% , #1f41bf, #0f117f); */
     -fx-background-image: url('resources/images/bg1.jpg'), url('resources/images/bg2.png');
     -fx-background-position: center, top right;
     -fx-background-repeat: no-repeat, no-repeat;
     -fx-background-size: auto, auto 100%;
-
 }
+
+HBox {
+    -fx-alignment: center ;
+    -fx-padding: 10 ;
+    -fx-spacing:10;
+}
+
+.label {
+    -fx-text-fill: #fff;
+}
+
+.scroll-pane > .viewport {
+   -fx-background-color: transparent;
+}
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+
+/*headers*/
+
+.label#titleLabel {
+    -fx-text-fill: #146eff;
+    -fx-font-weight: bold;
+    -fx-font-size: 36;
+}
+
+
+#mainFlow .label#titleLabel {
+        -fx-font-size: 32;
+}
+
+
+/*menu tiles*/
+
 .button.btnTile {
-    -fx-pref-width: 150px;
-    -fx-pref-height: 150px;  
+    -fx-pref-width: 160px;
+    -fx-pref-height: 160px;  
     -fx-background-color: rgba(0,200,0,0);
 
     -fx-border-color: #ccc;
@@ -19,7 +51,7 @@
     -fx-opacity: 0.8;
     -fx-text-fill: #fff;
     -fx-font-weight: bold;
-    -fx-font-size: 20;
+    -fx-font-size: 18;
 
 }
 .button.btnTile:hover {
@@ -28,15 +60,7 @@
     -fx-text-fill: #fff;
 }
 
-.label {
-    -fx-text-fill: #fff;
-}
-.label#titleLabel {
-    -fx-text-fill: #146eff;
-    -fx-font-weight: bold;
-    -fx-font-size: 36;
-}
-
+/*return btn*/
 
 .icons{
     -fx-font-family: FontAwesome;
@@ -59,12 +83,9 @@
     -fx-opacity:0.9;
 }
 
-HBox {
-    -fx-alignment: center ;
-    -fx-padding: 10 ;
-}
 
 
+/*tabs look*/
 
 .jfx-tab-pane .tab-header-area .jfx-rippler{
     -fx-rippler-fill:#173d7a;
@@ -88,7 +109,6 @@ HBox {
     -fx-pref-width: 600px;
     -fx-pref-height: 50px;  
     -fx-background-color: rgba(0,200,0,0);
-
     -fx-border-color: #ccc;
     -fx-border-width: 5;
     -fx-stroke-line-cup: butt;
@@ -97,22 +117,34 @@ HBox {
     -fx-text-fill: #fff;
     -fx-font-weight: bold;
     -fx-font-size: 20;
-
 }
 .button.tournamentBtn:hover {
     -fx-opacity: 1.0;
     -fx-background-color: rgba(255,255,255,0.1);
-
 }
 
-.button.tournamentBtn.current {
-    
-    -fx-border-color: blue;
-   
-
+.button.tournamentBtn.current {  
+    -fx-border-color: #146eff;
 }
 .button.tournamentBtn.current:hover {
     -fx-opacity: 0.8;
     -fx-background-color: rgba(255,255,255,0);
+}
 
+/*jfx buttons*/
+.button {
+-fx-padding: 0.7em 0.57em;
+    -fx-font-size: 14px;
+
+    -fx-background-color: rgb(77,102,204);
+    -fx-margin: 1em 0em;
+-fx-text-fill: rgba(255,255,255,0.8);
+-fx-font-weight:bold;
+
+-fx-cursor: hand;
+
+
+}
+.button:hover {
+    -fx-background-color: rgb(67,92,194);
 }

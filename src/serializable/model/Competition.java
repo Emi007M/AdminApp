@@ -197,7 +197,11 @@ public class Competition implements Serializable {
 
         int i = 0;
         for (Person p : list) {
-            if (!competitors.contains(p)) {
+//            if (!competitors.contains(p)) {
+//                competitors.add(p);
+//                i++;
+//            }
+            if (competitors.indexOf(p)==-1) {
                 competitors.add(p);
                 i++;
             }
@@ -253,7 +257,13 @@ public class Competition implements Serializable {
 //        ArrayList all = new ArrayList(prerankedCompetitors);
 //        all.addAll(competitors);
 
-        chart = new Chart(competitors, twoThirdPlaces);
+        if(!isLocked()){
+            chart = new Chart(competitors, twoThirdPlaces);
+        }
+        else {
+            //todo
+        }
+        
 
         progress = new SimpleStringProperty();
         setProgress("chart done, 0/0");

@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
 
 <FlowPane hgap="40.0" prefHeight="200.0" prefWidth="1000.0" vgap="40.0" 
           xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" 
@@ -15,11 +16,10 @@
         <HBox>
             <children>
                 <Button fx:id="gobackBtn" styleClass="goBackBtn" text="go back" textAlignment="CENTER" wrapText="true" />
-                <Label fx:id="titleLabel" text="Tournament List" />
-            <JFXButton fx:id="reloadBtn" buttonType="RAISED" onAction="#readAllTournaments" text="Reload" />             
+                <Label fx:id="titleLabel" text="Tournament List" />             
             </children>
         </HBox>
-      <VBox fx:id="VBox" prefHeight="200.0" prefWidth="800.0" spacing="10" />
+        <VBox fx:id="VBox" prefHeight="200.0" prefWidth="800.0" spacing="10" />
     
   
     </children>

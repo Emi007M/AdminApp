@@ -2,3 +2,16 @@
     -fx-font-size: 18;
     -fx-font-weight: bold;
 }
+
+.label-medium {
+    -fx-font-size: 20;
+}
+
+.jfx-text-field {
+    -fx-text-fill: #fff;
+}
+.jfx-text-area {
+    -fx-text-fill: #fff;
+    -fx-pref-height: 10;
+    -fx-max-height:10;
+}

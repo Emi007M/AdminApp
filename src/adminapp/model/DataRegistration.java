@@ -35,108 +35,108 @@ public class DataRegistration {
     private static final String PATH = "src/adminapp/model/data/";
     private static final String TEMPLATE = "template_blocked.xls";
 
-    public static void getData(Tournament t, Stage stage) {
+    public static boolean getData(Tournament t, Stage stage) {
         File fileOpen = null;
         InputStream fileIn = null;
         Workbook wb = null;
         
+        boolean success=false;
+
         try {
-        //--Open--
+            //--Open--
             FileChooser fileChooser = new FileChooser();
 
             //Set extension filter
-            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Skoroszyt programu Excel", "*.xls","*.xlsx");
+            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Skoroszyt programu Excel", "*.xls", "*.xlsx");
             fileChooser.getExtensionFilters().add(extFilter);
-            
-            //Show open file dialog
-            fileOpen = fileChooser.showOpenDialog(stage);
 
-            
+            //Show open file dialog
+            fileOpen = fileChooser.showOpenDialog(null);
+
             if (fileOpen != null) {
                 System.out.println("file not null!");
-                
+
                 fileIn = new FileInputStream(fileOpen);
-                if(fileIn==null)
+                if (fileIn == null) {
                     System.out.println("null fileIn");
-                else System.out.println("full fileIn");
+                } else {
+                    System.out.println("full fileIn");
+                }
                 //fileOut = new FileOutputStream(new File(PATH + formName));
-                
+
                 wb = WorkbookFactory.create(fileIn);
-                            if (wb instanceof HSSFWorkbook) {
-    // do whatever
-    System.out.println("hssf!");
-} else if (wb instanceof SXSSFWorkbook) {
-    // do whatever
-    System.out.println("sxssf!");
-} else if (wb instanceof XSSFWorkbook) {
-    // do whatever
-    System.out.println("xssf!");
-}
+                if (wb instanceof HSSFWorkbook) {
+                    // do whatever
+                    System.out.println("hssf!");
+                } else if (wb instanceof SXSSFWorkbook) {
+                    // do whatever
+                    System.out.println("sxssf!");
+                } else if (wb instanceof XSSFWorkbook) {
+                    // do whatever
+                    System.out.println("xssf!");
+                }
 
-               
-                if(wb==null)
+                if (wb == null) {
                     System.out.println("null wb");
-                else System.out.println("full wb");
-                
-                
-            //read first sheet
-            Sheet titleSheet = wb.getSheetAt(0);
-            Row r;
+                } else {
+                    System.out.println("full wb");
+                }
 
-            String club;
-            r = titleSheet.getRow(6);
-            club = r.getCell(3).getStringCellValue();
+                //read first sheet
+                Sheet titleSheet = wb.getSheetAt(0);
+                Row r;
 
-            String coach;
-            r = titleSheet.getRow(8);
-            coach = r.getCell(3).getStringCellValue();
+                String club;
+                r = titleSheet.getRow(6);
+                club = r.getCell(3).getStringCellValue();
 
-            System.out.println("club: " + club);
-            System.out.println("coach: " + coach);
-            
+                String coach;
+                r = titleSheet.getRow(8);
+                coach = r.getCell(3).getStringCellValue();
 
-            //read list 1
-            for(int j=1;j<=t.getCompetitions().size();j++){
-                Sheet sheet = wb.getSheetAt(j);
-                ArrayList<Person> people = new ArrayList<>();
-                for (int i = 5; i <= sheet.getLastRowNum(); i++) {
-                    r = sheet.getRow(i);
-                    if (r.getCell(1).getStringCellValue().equals("")) {
-                        break;
+                System.out.println("club: " + club);
+                System.out.println("coach: " + coach);
+
+                //read list 1
+                for (int j = 1; j <= t.getCompetitions().size(); j++) {
+                    Sheet sheet = wb.getSheetAt(j);
+                    ArrayList<Person> people = new ArrayList<>();
+                    for (int i = 5; i <= sheet.getLastRowNum(); i++) {
+                        r = sheet.getRow(i);
+                        if (r.getCell(1).getStringCellValue().equals("")) {
+                            break;
+                        }
+
+                        String name = r.getCell(1).getStringCellValue();
+                        String surname = r.getCell(2).getStringCellValue();
+                        Integer year = (int) r.getCell(3).getNumericCellValue();
+                        String rank = r.getCell(4).getStringCellValue();
+                        System.out.println(name + " " + surname + " (" + year + ") " + rank);
+
+                        people.add(new Person(name, surname, year, rank, club));
+                        //boolean add = t.getCompetitions().get(j-1).addPlayer(new Person(name, surname, year, rank, club));
+                        // System.out.println(name+" "+surname+" added to the list "+j);
                     }
 
-                    String name = r.getCell(1).getStringCellValue();
-                    String surname = r.getCell(2).getStringCellValue();
-                    Integer year = (int) r.getCell(3).getNumericCellValue();
-                    String rank = r.getCell(4).getStringCellValue();
-                    System.out.println(name + " " + surname + " (" + year + ") " + rank);
-                    
-                    people.add(new Person(name, surname, year, rank, club));
-                    //boolean add = t.getCompetitions().get(j-1).addPlayer(new Person(name, surname, year, rank, club));
-                   // System.out.println(name+" "+surname+" added to the list "+j);
+                    t.getCompetitions().get(j - 1).initProperties();
+                    t.getCompetitions().get(j - 1).addPlayers(people);
+                    System.out.println("Contestants added to the list " + j);
                 }
-                
-                t.getCompetitions().get(j-1).initProperties();
-                t.getCompetitions().get(j-1).addPlayers(people);
-                System.out.println("Contestants added to the list "+j);
-            }
-                
-                
-                
-                
-                
-                
+
+                success=true;
                 System.out.println("Form imported saved");
-            }else System.out.println("null file!");
+            } else {
+                System.out.println("null file!");
+            }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(DataRegistration.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(DataRegistration.class.getName()).log(Level.SEVERE, null, ex);
-        }  catch (Throwable e) {
-    System.out.println(e);
-    System.out.println(e.getMessage());
+        } catch (Throwable e) {
+            System.out.println(e);
+            System.out.println(e.getMessage());
 
-}finally {
+        } finally {
             try {
                 fileIn.close();
                 wb.close();
@@ -144,9 +144,8 @@ public class DataRegistration {
                 Logger.getLogger(DataRegistration.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
-        
-        
+
+        return success;
     }
 
     public static void generateForm(Tournament t, String formName, Stage stage) {

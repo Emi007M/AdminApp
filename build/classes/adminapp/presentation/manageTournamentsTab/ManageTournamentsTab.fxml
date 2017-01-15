@@ -29,9 +29,7 @@
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
-         <VBox.margin>
-            <Insets left="40.0" top="40.0" />
-         </VBox.margin>
+         
             </FlowPane>
          </children>
         
