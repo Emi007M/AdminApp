@@ -22,7 +22,14 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import serializable.model.Competition;
 import adminapp.model.CurrentTournament;
+import adminapp.model.SocketServer;
 import adminapp.presentation.RootLayoutController;
+import java.io.IOException;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 
 /**
  *
@@ -30,21 +37,42 @@ import adminapp.presentation.RootLayoutController;
  */
 public class SettingsTabController implements Initializable {
 
-    
     private RootLayoutController rootController;
+    
+    private boolean serverOn = false;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       
 
     }
 
     public void init() {
-    
+
     }
 
-    
     public void setRootController(RootLayoutController r) {
         rootController = r;
+    }
+
+    @FXML
+    private void handleServerBtn() {
+
+
+        if(serverOn) return;
+        
+        Thread th = new Thread(() -> {
+            try {
+                SocketServer.runServer();
+            } catch (IOException ex) {
+                Logger.getLogger(SettingsTabController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(SettingsTabController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        th.setDaemon(true);
+        th.start();
+
+        serverOn = true;
+                 
     }
 }

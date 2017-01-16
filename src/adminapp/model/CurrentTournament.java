@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package adminapp.model;
 
 import serializable.model.Tournament;
@@ -72,6 +68,28 @@ public final class CurrentTournament {
         return boardID;
     }
 
+    /**
+     * method for Socket operations
+     * probably receives locked or locked and finished competition from Client
+     * and not locked from Server
+     * @param ID
+     * @param c 
+     */
+    public static void updateCompetition(Competition c){
+        Integer ID = c.getID();
+        Competition tmp = getCompetition(ID);
+        if(tmp.getTitle().equals(c.getTitle())){
+            
+            for(Competition co : tournament.getCompetitions())
+                if(co.getID() == ID){
+                    co = c;
+                    System.out.println("competition updated");
+                    return;
+                }
+            
+        }
+        System.out.println("competition couldn't be updated");
+    }
 
     
     
