@@ -26,6 +26,7 @@
          <children>
 
              <Button fx:id="serverBtn" onAction="#handleServerBtn" text="Run Server"/>
+             <Label fx:id="serverInfo" text="" />
              
          </children>
          <opaqueInsets>

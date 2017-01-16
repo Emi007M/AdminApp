@@ -79,6 +79,7 @@ public class SocketServer implements Runnable{
             else if(message.getTopic().equals(Message.Topic.SendCompetition)){
                 Competition c =(Competition) message.getObject();               
                 CurrentTournament.updateCompetition(c);
+                CurrentTournament.getTournament().saveToFile();
                 System.out.println("received competition. sending tournament.");
                 answer.sendTournament(CurrentTournament.getTournament()); 
             }          

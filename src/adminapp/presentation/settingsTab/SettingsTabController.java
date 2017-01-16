@@ -25,11 +25,14 @@ import adminapp.model.CurrentTournament;
 import adminapp.model.SocketServer;
 import adminapp.presentation.RootLayoutController;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
+import javafx.scene.control.Label;
 
 /**
  *
@@ -41,6 +44,9 @@ public class SettingsTabController implements Initializable {
     
     private boolean serverOn = false;
 
+    @FXML 
+    private Label serverInfo;
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -60,9 +66,21 @@ public class SettingsTabController implements Initializable {
 
         if(serverOn) return;
         
+        InetAddress IP;
+        try {
+            IP = InetAddress.getLocalHost();
+            serverInfo.setText("IP: "+IP.getHostAddress());
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(SettingsTabController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
         Thread th = new Thread(() -> {
             try {
                 SocketServer.runServer();
+                
+                
+                
             } catch (IOException ex) {
                 Logger.getLogger(SettingsTabController.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {

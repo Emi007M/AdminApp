@@ -19,6 +19,7 @@ import adminapp.model.Dictionary;
 import serializable.model.Tournament;
 import serializable.model.Serializator;
 import adminapp.presentation.RootLayoutController;
+import javafx.scene.image.Image;
 
 /**
  *
@@ -30,10 +31,12 @@ public class Main extends Application {
     public BorderPane rootLayout;
     private RootLayoutController mainController;
 
-//    static {
-//        Font.loadFont(Main.class.getResource("/font/fontawesome-webfont.ttf").toExternalForm(), 10);
-//    }
-    
+    public static void main(String[] args) throws IOException {
+
+        Application.launch(Main.class, (java.lang.String[]) null);
+
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -43,7 +46,7 @@ public class Main extends Application {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle(Dictionary.getString("window-title"));
 
-        
+        this.primaryStage.getIcons().add(new Image("file:W:/Netbeans Projects/AdminApp/src/adminapp/presentation/resources/images/ico128.png"));
 
         //showChartMaker();
 //        Tournament t = new Tournament("Zawody testowe", new Date(2017,2,15));
@@ -66,16 +69,14 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("presentation/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
-            
-            mainController = loader.getController();
 
+            mainController = loader.getController();
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();
-            
-            
+
             mainController.setPrimaryStage(primaryStage);
 
         } catch (IOException e) {
@@ -87,11 +88,9 @@ public class Main extends Application {
 //        Tournament t = new Tournament("tytuł", new Date(2016,12,12));
 //        t.init();
 //        Serializator.writeToFile(t,"tournaments/tournament3");
-      //  CurrentTournament.setTournament((Tournament) Serializator.readFromFile("tournaments/t_2016-06-20"));
+        //  CurrentTournament.setTournament((Tournament) Serializator.readFromFile("tournaments/t_2016-06-20"));
 
-
-       // mainController.init();
-
+        // mainController.init();
     }
 
 //    /**
@@ -101,5 +100,4 @@ public class Main extends Application {
 //        launch(args);
 //
 //    }
-
 }

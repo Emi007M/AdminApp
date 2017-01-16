@@ -76,14 +76,16 @@ public final class CurrentTournament {
      * @param c 
      */
     public static void updateCompetition(Competition c){
+        if(c==null)return;
         Integer ID = c.getID();
         Competition tmp = getCompetition(ID);
         if(tmp.getTitle().equals(c.getTitle())){
             
             for(Competition co : tournament.getCompetitions())
-                if(co.getID() == ID){
+                if(co.equals(tmp)){
                     co = c;
-                    System.out.println("competition updated");
+                    System.out.println("competition updated");                  
+                    System.out.println("winner is "+c.getResults().get(0));
                     return;
                 }
             

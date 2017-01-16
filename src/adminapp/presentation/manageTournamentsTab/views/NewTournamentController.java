@@ -25,6 +25,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.layout.BorderPane;
@@ -148,6 +149,11 @@ public class NewTournamentController extends ViewBaseController{
   
         //save to file
         t.saveToFile();
-//        Serializator.writeToFile(t, "tournaments/t_"+dateField.getValue());
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Tournament Created");
+        alert.setHeaderText("Tournament succesfully created");
+        alert.setContentText("Tournament has been succesfully created and saved.");
+        alert.showAndWait();
     }
 }
