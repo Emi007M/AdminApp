@@ -23,6 +23,7 @@ import adminapp.presentation.RootLayoutController;
 import adminapp.presentation.ViewBaseController;
 import adminapp.presentation.currentTournamentTab.views.ChooseTournamentController;
 import adminapp.presentation.currentTournamentTab.views.ManageBoardsController;
+import adminapp.presentation.currentTournamentTab.views.ResultsController;
 import adminapp.presentation.currentTournamentTab.views.StartingListsController;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -142,6 +143,22 @@ public class CurrentTournamentTabController extends LayoutBaseController {
             controller.setTabController(this);
             
             controller.init();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(CurrentTournamentTabController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    protected void setResults(){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("views/Results.fxml"));
+            mainFlow.getChildren().clear();
+            mainFlow.getChildren().setAll((FlowPane)loader.load());
+            
+            ResultsController controller = (ResultsController) loader.getController();
+            controller.setTabController(this);
+
             
         } catch (IOException ex) {
             Logger.getLogger(CurrentTournamentTabController.class.getName()).log(Level.SEVERE, null, ex);

@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/W:/Netbeans%20Projects/AdminApp/src/adminapp/model/SocketServer.java</file>
             <file>file:/W:/Netbeans%20Projects/AdminApp/src/adminapp/Main.java</file>
             <file>file:/W:/Netbeans%20Projects/AdminApp/src/adminapp/model/CurrentTournament.java</file>
             <file>file:/W:/Netbeans%20Projects/AdminApp/src/adminapp/model/Dictionary.java</file>
-            <file>file:/W:/Netbeans%20Projects/AdminApp/build.xml</file>
-            <file>file:/W:/Netbeans%20Projects/AdminApp/src/adminapp/presentation/settingsTab/SettingsTabController.java</file>
+            <file>file:/W:/Netbeans%20Projects/AdminApp/src/adminapp/presentation/manageTournamentsTab/views/NewTournamentController.java</file>
             <file>file:/W:/Netbeans%20Projects/AdminApp/nbproject/jfx-impl.xml</file>
-            <file>file:/W:/Netbeans%20Projects/AdminApp/src/adminapp/presentation/settingsTab/SettingsTab.fxml</file>
+            <file>file:/W:/Netbeans%20Projects/AdminApp/src/adminapp/presentation/currentTournamentTab/views/ContestantsController.java</file>
         </group>
     </open-files>
 </project-private>

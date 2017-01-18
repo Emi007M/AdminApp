@@ -1,24 +1,13 @@
 package adminapp.presentation.currentTournamentTab.views;
 
-import com.sun.javafx.scene.control.skin.TableHeaderRow;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import serializable.model.Competition;
 import adminapp.model.CurrentTournament;
 import adminapp.model.DataRegistration;
-import adminapp.presentation.RootLayoutController;
 import adminapp.presentation.ViewBaseController;
 import java.io.IOException;
 import java.util.Optional;
@@ -30,12 +19,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TitledPane;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import serializable.model.Tournament;
 
 /**
  *

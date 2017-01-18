@@ -32,7 +32,7 @@ public class Main extends Application {
     private RootLayoutController mainController;
 
     public static void main(String[] args) throws IOException {
-
+        //needed for buiding .exe file
         Application.launch(Main.class, (java.lang.String[]) null);
 
     }
@@ -48,11 +48,6 @@ public class Main extends Application {
 
         this.primaryStage.getIcons().add(new Image("file:W:/Netbeans Projects/AdminApp/src/adminapp/presentation/resources/images/ico128.png"));
 
-        //showChartMaker();
-//        Tournament t = new Tournament("Zawody testowe", new Date(2017,2,15));
-//        t.init();
-//        Serializator.writeToFile(t, "tournaments/tournament1");
-        initBoard(0);
         initRootLayout();
     }
 
@@ -84,20 +79,5 @@ public class Main extends Application {
         }
     }
 
-    public void initBoard(Integer boardId) {
-//        Tournament t = new Tournament("tytuł", new Date(2016,12,12));
-//        t.init();
-//        Serializator.writeToFile(t,"tournaments/tournament3");
-        //  CurrentTournament.setTournament((Tournament) Serializator.readFromFile("tournaments/t_2016-06-20"));
 
-        // mainController.init();
-    }
-
-//    /**
-//     * @param args the command line arguments
-//     */
-//    public static void main(String[] args) {
-//        launch(args);
-//
-//    }
 }

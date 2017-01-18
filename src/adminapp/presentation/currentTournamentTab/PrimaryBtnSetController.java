@@ -83,7 +83,7 @@ public class PrimaryBtnSetController extends ViewBaseController {
     @FXML
     private void handleResultsBtn() {
         System.out.println("results btn clicked...");
-
+        tabController.setResults();
     }
     
         @FXML

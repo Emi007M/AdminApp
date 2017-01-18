@@ -29,6 +29,8 @@ public class Competition implements Serializable {
 
     private transient SimpleStringProperty progress;
     private transient SimpleIntegerProperty contestants;
+    
+    private ArrayList<String> results;
 
     private transient SimpleStringProperty sent;
     private boolean isSent;
@@ -70,6 +72,8 @@ public class Competition implements Serializable {
         locked = false;
         notStarted = true;
         finished = false;
+        
+        results = null;
 
     }
 
@@ -370,7 +374,7 @@ public class Competition implements Serializable {
         this.boardID = boardID;
     }
 
-    private ArrayList<String> results;
+
 
     public ArrayList<String> getResults() {
         return results;
