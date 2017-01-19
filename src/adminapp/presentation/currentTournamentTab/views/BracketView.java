@@ -14,14 +14,12 @@ import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import serializable.model.Chart;
-import adminapp.model.Dictionary;
 import serializable.model.Node;
 
 /**
@@ -31,29 +29,29 @@ import serializable.model.Node;
 public class BracketView extends Region {
 
     private ArrayList<Node> matches;
-  //  private Node current;
+    //  private Node current;
 
     private int vert_gap;
     private int match_width;
     private int top_offset;
-    
+
     private String title;
 
     BracketView(ArrayList<Node> matches, String title) {
         this.matches = matches;
         this.title = title;
         this.setId("bracket-chart");
-        
+
         vert_gap = 70;
         match_width = 220;
-        
+
         top_offset = 50;
 
         initTitle();
         initBracket();
     }
-    
-    private void initTitle(){
+
+    private void initTitle() {
         Label t = new Label(title);
         t.getStyleClass().add("title");
         t.relocate(50, 0);
@@ -65,7 +63,7 @@ public class BracketView extends Region {
         int cur_lvl = lvl;
         int m_amount = matches.size();
         int j = 0;
-        
+
         boolean firstColumn = true;
 
         for (int i = 0; i < m_amount; i++) {
@@ -78,14 +76,12 @@ public class BracketView extends Region {
             int posX = (tmp) * 300 + 30; //horizontal distance
             int posY = (int) (Math.pow(2, tmp) * vert_gap + j++ * 2 * vert_gap * (Math.pow(2, tmp)) + top_offset); // vertical distance + top shift
 
-            
             this.addMatch(matches.get(i), posX, posY, firstColumn);
 
-                
             if (cur_lvl < lvl) {
                 addJoining(posX, posY, (int) ((Math.pow(2, tmp - 1)) * vert_gap));
             }
-   
+
         }
 
         addDottedLine(lvl * 300 + 30, (int) (Math.pow(2, lvl) * vert_gap));
@@ -112,8 +108,8 @@ public class BracketView extends Region {
             shiroClub = match.getShiro().getAthlete().getClub();
         }
         String shiroScore = (match.getScoreShiro() != null) ? match.getScoreShiro().toString() : "";
-        
-        if(isFirstLvl && (" ".equals(akaName) || " ".equals(shiroName))){
+
+        if (isFirstLvl && (" ".equals(akaName) || " ".equals(shiroName))) {
             akaName = shiroName = akaClub = shiroClub = " ";
         }
 
@@ -126,11 +122,11 @@ public class BracketView extends Region {
         int textShift = 15;
 
         //competitor color icons
-        Rectangle akaIco = new Rectangle(icoSize,icoSize);
+        Rectangle akaIco = new Rectangle(icoSize, icoSize);
         akaIco.getStyleClass().add("redSquare");
 
         akaIco.relocate(posX, posY);
-        Rectangle shiroIco = new Rectangle(icoSize,icoSize);
+        Rectangle shiroIco = new Rectangle(icoSize, icoSize);
         shiroIco.getStyleClass().add("whiteSquare");
         shiroIco.relocate(posX, posY + distY);
 
@@ -152,15 +148,15 @@ public class BracketView extends Region {
         Label s3 = new Label(shiroScore);
         s3.relocate(posX + distScore, posY + distY - textShift + 5);
         s3.getStyleClass().add("score");
-        
-        
-        //make ranked names bold
-        if(match.getAka() != null && match.getAka().getAthlete() != null && match.getAka().getAthlete().getRank()!=0)
-            a1.getStyleClass().add("ranked");
-        if(match.getShiro() != null && match.getShiro().getAthlete() != null && match.getShiro().getAthlete().getRank()!=0)
-            a1.getStyleClass().add("ranked");
 
-        
+        //make ranked names bold
+        if (match.getAka() != null && match.getAka().getAthlete() != null && match.getAka().getAthlete().getRank() != 0) {
+            a1.getStyleClass().add("ranked");
+        }
+        if (match.getShiro() != null && match.getShiro().getAthlete() != null && match.getShiro().getAthlete().getRank() != 0) {
+            a1.getStyleClass().add("ranked");
+        }
+
         Line l = new Line(posX, posY + distY - 15, posX + distScore + 20, posY + distY - 15);
         l.getStyleClass().add("line");
 
@@ -170,8 +166,6 @@ public class BracketView extends Region {
         this.getChildren().addAll(m);
 
     }
-
-   
 
     private void addJoining(int posX, int posY, int height) {
         int width = 20;
@@ -219,8 +213,9 @@ public class BracketView extends Region {
 
     /**
      * adds line on bracket chart indicating half of the chart
+     *
      * @param posX
-     * @param posY 
+     * @param posY
      */
     private void addDottedLine(int posX, int posY) {
         Line l = new Line(30, posY + 35 + top_offset, posX - 10, posY + 35 + top_offset);
@@ -241,10 +236,12 @@ public class BracketView extends Region {
 
         DoubleProperty scrollVvalue = bracketScrollPane.vvalueProperty();
         DoubleProperty contentHeight = new SimpleDoubleProperty();
-        
+
         scrollContent.boundsInLocalProperty().addListener(
                 (ObservableValue<? extends Bounds> observableValue, Bounds bounds, Bounds bounds2)
-                -> {contentHeight.set(bounds2.getHeight());}
+                -> {
+            contentHeight.set(bounds2.getHeight());
+        }
         );
 
         // fix lvlNames vertically
@@ -258,8 +255,6 @@ public class BracketView extends Region {
                         ).divide(zoomGroup.scaleYProperty())//.divide(new ZoomBinding(zoomGroup))
         );
 
-        
-        
 //        lvlNames.layoutYProperty().addListener((observable, oldValue, newValue) -> {
 //            System.out.println("pos" + lvlNames.getLayoutY()
 //                    + "\tScale " + zoomGroup.getScaleY()
@@ -270,7 +265,6 @@ public class BracketView extends Region {
 //                    + "\tb " + bracketScrollPane.getViewportBounds().getHeight()
 //                    + ")\t=" + (bracketScrollPane.getVvalue() * (bracketScrollPane.getContent().getBoundsInLocal().getHeight() - bracketScrollPane.getViewportBounds().getHeight())));
 //        });
-
         zoomGroup.setMinSize(10.0, 10.0);
 
         //
@@ -302,7 +296,7 @@ public class BracketView extends Region {
         }
 
         @Override
-        protected double computeValue() {  
+        protected double computeValue() {
             return root.getViewportBounds().getHeight();
         }
     }

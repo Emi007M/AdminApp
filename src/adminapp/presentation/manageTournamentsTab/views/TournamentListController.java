@@ -36,9 +36,9 @@ public class TournamentListController extends ViewBaseController {
     }
 
     public void updateList() {
-        
+
         VBox.getChildren().clear();
-        
+
         //get tournaments from folder
         ArrayList<Serializable> objs;
         objs = Serializator.readAllFromFolder("tournaments");

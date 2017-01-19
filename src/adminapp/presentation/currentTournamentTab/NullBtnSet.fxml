@@ -17,9 +17,9 @@
         <Button fx:id="changeBtn" styleClass="btnTile" text="CHOOSE TOURNAMENT" textAlignment="CENTER" wrapText="true" />
      
     </children>
-         <FlowPane.margin>
-            <Insets left="40.0" top="40.0" />
-         </FlowPane.margin>
+    <FlowPane.margin>
+        <Insets left="40.0" top="40.0" />
+    </FlowPane.margin>
     <stylesheets>
         <URL value="@style.css" />
     </stylesheets>

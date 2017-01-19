@@ -13,25 +13,25 @@ import java.util.ResourceBundle;
  * @author Emilia
  */
 public final class Dictionary {
-    
+
     private static Locale locale;
     private static String language;
     private static String country;
-    
+
     private static ResourceBundle messages;
-    
-    public Dictionary(){
+
+    public Dictionary() {
         language = "en";
         country = "US";
         locale = new Locale(language, country);
         //locale = Locale.getDefault();
-        
+
         final String dir = "adminapp/model/dictionary/MessagesBundle";
         messages = ResourceBundle.getBundle(dir, locale);
     }
-    
-    public static String getString(String key){
+
+    public static String getString(String key) {
         return messages.getString(key);
     }
-    
+
 }

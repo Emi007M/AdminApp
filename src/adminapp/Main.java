@@ -5,21 +5,16 @@
  */
 package adminapp;
 
+import adminapp.model.Dictionary;
+import adminapp.presentation.RootLayoutController;
 import java.io.IOException;
-import java.util.Date;
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import adminapp.model.CurrentTournament;
-import adminapp.model.Dictionary;
-import serializable.model.Tournament;
-import serializable.model.Serializator;
-import adminapp.presentation.RootLayoutController;
-import javafx.scene.image.Image;
 
 /**
  *
@@ -78,6 +73,5 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
-
 
 }

@@ -22,7 +22,7 @@
             </children>
         </HBox>
       
-      <VBox fx:id="VBox" prefHeight="200.0" prefWidth="800.0" spacing="10" />
+        <VBox fx:id="VBox" prefHeight="200.0" prefWidth="800.0" spacing="10" />
     
   
      

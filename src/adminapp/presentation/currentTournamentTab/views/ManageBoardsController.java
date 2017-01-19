@@ -1,46 +1,24 @@
 package adminapp.presentation.currentTournamentTab.views;
 
-import com.sun.javafx.scene.control.skin.TableHeaderRow;
+import adminapp.model.CurrentTournament;
+import adminapp.presentation.ViewBaseController;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
-import serializable.model.Competition;
-import adminapp.model.CurrentTournament;
-import adminapp.presentation.RootLayoutController;
-import adminapp.presentation.ViewBaseController;
-import java.io.IOException;
 import java.util.Optional;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DataFormat;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Paint;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
+import serializable.model.Competition;
 
 /**
  *
@@ -50,19 +28,19 @@ public class ManageBoardsController extends ViewBaseController {
 
     @FXML
     private VBox box0, box1, box2, box3, box4;
-    
+
     @FXML
     private Button saveAllBtn;
-    
-    private static final DataFormat competitionDataFormat = new DataFormat("src.seriaizable.model.Competition") {};
+
+    private static final DataFormat competitionDataFormat = new DataFormat("src.seriaizable.model.Competition") {
+    };
 
     private ArrayList<LabelWithCompetition> labels;
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setBackBtn();
-        
-        
+
     }
 
     public void init() {
@@ -79,7 +57,7 @@ public class ManageBoardsController extends ViewBaseController {
         for (Competition c : CurrentTournament.getTournamentCompetitions()) {
 
             LabelWithCompetition l = new LabelWithCompetition();
-            
+
             l.setOnDragDetected(e -> handleDragOver(l));
             l.setOnDragDone(e -> handleDragDone(e, l));
 
@@ -111,16 +89,16 @@ public class ManageBoardsController extends ViewBaseController {
         //set drop areas
         box0.setOnDragOver(e -> handleDrop(e, box0));
         box0.setOnDragDropped(e -> handleDropped(e, box0));
-        
+
         box1.setOnDragOver(e -> handleDrop(e, box1));
         box1.setOnDragDropped(e -> handleDropped(e, box1));
-        
+
         box2.setOnDragOver(e -> handleDrop(e, box2));
         box2.setOnDragDropped(e -> handleDropped(e, box2));
-        
+
         box3.setOnDragOver(e -> handleDrop(e, box3));
         box3.setOnDragDropped(e -> handleDropped(e, box3));
-        
+
         box4.setOnDragOver(e -> handleDrop(e, box4));
         box4.setOnDragDropped(e -> handleDropped(e, box4));
 
@@ -155,29 +133,27 @@ public class ManageBoardsController extends ViewBaseController {
         event.consume();
     }
 
-   
     public void handleDropped(DragEvent event, VBox target) {
         /* data dropped */
  /* if there is a string data on dragboard, read it and use it */
         Dragboard db = event.getDragboard();
         boolean success = false;
         if (db.hasContent(competitionDataFormat)) {
-            
+
             //add label with competition and update competition
-            
             Competition c = (Competition) db.getContent(competitionDataFormat);
             LabelWithCompetition l = new LabelWithCompetition();
             l.setCompetition(c);
-            Integer boxID = Character.getNumericValue( target.getId().charAt(3) );
-            
-            System.out.println("box is "+target.getId().charAt(3)+", id="+boxID);
+            Integer boxID = Character.getNumericValue(target.getId().charAt(3));
+
+            System.out.println("box is " + target.getId().charAt(3) + ", id=" + boxID);
             c.setBoardID(boxID);
             labels.add(l);
-            
+
             target.getChildren().add(l);
             l.setOnDragDetected(e -> handleDragOver(l));
             l.setOnDragDone(e -> handleDragDone(e, l));
-            
+
             success = true;
         }
         /* let the source know whether the string was successfully 
@@ -191,17 +167,16 @@ public class ManageBoardsController extends ViewBaseController {
         /* the drag and drop gesture ended */
  /* if the data was successfully moved, clear it */
         if (event.getTransferMode() == TransferMode.MOVE) {
-             box0.getChildren().remove(source);
-             box1.getChildren().remove(source);
-             box2.getChildren().remove(source);
-             box3.getChildren().remove(source);
-             box4.getChildren().remove(source);
-             
+            box0.getChildren().remove(source);
+            box1.getChildren().remove(source);
+            box2.getChildren().remove(source);
+            box3.getChildren().remove(source);
+            box4.getChildren().remove(source);
+
         }
         event.consume();
     }
-    
-    
+
     @FXML
     public void handleSaveChangesBtn() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -212,7 +187,7 @@ public class ManageBoardsController extends ViewBaseController {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {
             // ... user chose OK
-            for(LabelWithCompetition l : labels){
+            for (LabelWithCompetition l : labels) {
                 CurrentTournament.getCompetition(
                         l.getCompetition().getID())
                         .setBoardID(l.getCompetition().getBoardID());
@@ -224,9 +199,9 @@ public class ManageBoardsController extends ViewBaseController {
 
     }
 
-    
     /**
-     * Auxiliary extended Label class which stores an additional Competition object
+     * Auxiliary extended Label class which stores an additional Competition
+     * object
      */
     class LabelWithCompetition extends Label {
 
@@ -235,6 +210,7 @@ public class ManageBoardsController extends ViewBaseController {
         private LabelWithCompetition(String string) {
             super(string);
         }
+
         private LabelWithCompetition() {
         }
 
@@ -250,7 +226,7 @@ public class ManageBoardsController extends ViewBaseController {
             if (competition.isLocked()) {
                 this.setTextFill(Paint.valueOf("GREY"));
             }
-            
+
             this.setText(competition.getID() + ". " + competition.getTitle());
 
         }

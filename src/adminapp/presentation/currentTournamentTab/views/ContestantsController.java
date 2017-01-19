@@ -1,24 +1,24 @@
 package adminapp.presentation.currentTournamentTab.views;
 
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import serializable.model.Competition;
 import adminapp.model.CurrentTournament;
 import adminapp.model.DataRegistration;
 import adminapp.presentation.ViewBaseController;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.Optional;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TitledPane;
+import serializable.model.Competition;
 
 /**
  *
@@ -116,7 +116,7 @@ public class ContestantsController extends ViewBaseController {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {
             // ... user chose OK
-            for(Competition c : CurrentTournament.getTournamentCompetitions()){
+            for (Competition c : CurrentTournament.getTournamentCompetitions()) {
                 c.initChart();
             }
             CurrentTournament.getTournament().saveToFile();

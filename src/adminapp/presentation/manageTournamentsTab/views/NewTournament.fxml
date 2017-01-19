@@ -27,39 +27,39 @@
                      
             </children>
         </HBox>
-      <BorderPane prefWidth="900.0">
-         <center>
+        <BorderPane prefWidth="900.0">
+            <center>
              
-                 <VBox alignment="TOP_CENTER" maxWidth="600.0" spacing="20.0">
-               <children>
-                  <JFXTextField fx:id="nameField" labelFloat="true" promptText="Tournament Name" />
-                  <JFXDatePicker fx:id="dateField" defaultColor="#4059a9" promptText="pick date" />
-                  <JFXTextField fx:id="placeField" labelFloat="true" promptText="Place" />
+                <VBox alignment="TOP_CENTER" maxWidth="600.0" spacing="20.0">
+                    <children>
+                        <JFXTextField fx:id="nameField" labelFloat="true" promptText="Tournament Name" />
+                        <JFXDatePicker fx:id="dateField" defaultColor="#4059a9" promptText="pick date" />
+                        <JFXTextField fx:id="placeField" labelFloat="true" promptText="Place" />
                   
-                  <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="600.0" spacing="20">
-                     <children>
-                         <Label text="Competitions" id="label-medium"/>
-                        <JFXButton fx:id="addBtn" buttonType="RAISED" onAction="#handleAddListBtn" text="Add" />
-                     </children>
-                  </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="600.0" spacing="20">
+                            <children>
+                                <Label text="Competitions" id="label-medium"/>
+                                <JFXButton fx:id="addBtn" buttonType="RAISED" onAction="#handleAddListBtn" text="Add" />
+                            </children>
+                        </HBox>
                   
-                  <ScrollPane  prefHeight="250.0" prefWidth="600.0" maxWidth="600.0" >
-                  <VBox fx:id="VBox" minHeight="200.0" prefWidth="580.0">
-                     <children>
+                        <ScrollPane  prefHeight="250.0" prefWidth="600.0" maxWidth="600.0" >
+                            <VBox fx:id="VBox" minHeight="200.0" prefWidth="580.0">
+                                <children>
                         
-                     </children>
-                      <VBox.margin>
-                   <Insets top="10"/>
-               </VBox.margin>
-                  </VBox>
-                   </ScrollPane>
-                   </children>
+                                </children>
+                                <VBox.margin>
+                                    <Insets top="10"/>
+                                </VBox.margin>
+                            </VBox>
+                        </ScrollPane>
+                    </children>
               
-            </VBox>
+                </VBox>
             
             
-         </center>
-      </BorderPane>
+            </center>
+        </BorderPane>
     
      
     </children>

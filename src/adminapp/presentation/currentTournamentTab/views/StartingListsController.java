@@ -1,22 +1,22 @@
 package adminapp.presentation.currentTournamentTab.views;
 
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-import javafx.fxml.FXML;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
-import serializable.model.Competition;
 import adminapp.model.CurrentTournament;
 import adminapp.presentation.ViewBaseController;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXToggleButton;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 import static javafx.application.Platform.runLater;
+import javafx.fxml.FXML;
 import javafx.print.PageLayout;
 import javafx.print.PrinterJob;
 import javafx.scene.Node;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.scene.transform.Scale;
+import serializable.model.Competition;
 
 /**
  *
@@ -42,24 +42,23 @@ public class StartingListsController extends ViewBaseController {
         ArrayList<Node> tList = new ArrayList<>();
 
         for (Competition c : CurrentTournament.getTournamentCompetitions()) {
-   
-            Text title = new Text(c.getID().toString()+". "+c.getTitle());  
-            
+
+            Text title = new Text(c.getID().toString() + ". " + c.getTitle());
+
             Text descr = new Text(c.getDescr());
-            
-            Text competitors = new Text("Contestants: "+c.getPlayersAmount().toString()+"     ");
+
+            Text competitors = new Text("Contestants: " + c.getPlayersAmount().toString() + "     ");
             JFXButton seeChart = new JFXButton("PRINT BRACKETS");
             seeChart.setOnAction(e -> handleSeeChartBtn(c.getID()));
             TextFlow t2 = new TextFlow(competitors, seeChart);
-            
-            VBox container = new VBox(title,descr, t2);
-            
+
+            VBox container = new VBox(title, descr, t2);
+
             title.getStyleClass().add("startingList-top");
             descr.getStyleClass().add("startingList-middle");
             competitors.getStyleClass().add("startingList-bottom");
             seeChart.getStyleClass().add("startingList-bottom");
             container.getStyleClass().add("startingList-container");
-            
 
             tList.add(container);
 
@@ -73,19 +72,18 @@ public class StartingListsController extends ViewBaseController {
 
         Competition tmp = CurrentTournament.getCompetition(id);
         ArrayList<serializable.model.Node> matches = tmp.getChart().getBracketMatches();
-        if(matches.size()==0){
+        if (matches.size() == 0) {
             tmp.initChart();
             matches = tmp.getChart().getBracketMatches();
         }
 
-        String title = "Lista startowa nr "+tmp.getID()+". "+tmp.getTitle();
+        String title = "Lista startowa nr " + tmp.getID() + ". " + tmp.getTitle();
 
         BracketView chart = new BracketView(matches, title);
 
         chart.getStylesheets().add("adminapp/presentation/currentTournamentTab/views/style.css");
 
         //listsBox.getChildren().add(chart);
-
         print(chart);
     }
 

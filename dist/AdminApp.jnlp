@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="AdminApp.jnlp">
-  <information>
-    <title>AdminApp</title>
-    <vendor>Emilia</vendor>
-    <description>null</description>
-    <offline-allowed/>
-  </information>
-  <resources>
-    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="AdminApp.jar" size="1364052" download="eager" />
-    <jar href="lib\commons-codec-1.10.jar" size="284184" download="eager" />
-    <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
-    <jar href="lib\jfoenix.jar" size="2206526" download="eager" />
-    <jar href="lib\poi-3.15.jar" size="2579580" download="eager" />
-    <jar href="lib\poi-ooxml-3.15.jar" size="1338241" download="eager" />
-    <jar href="lib\poi-ooxml-schemas-3.15.jar" size="5859007" download="eager" />
-    <jar href="lib\stax-api-1.0-2.jar" size="23346" download="eager" />
-    <jar href="lib\xmlbeans-2.6.0.jar" size="2730866" download="eager" />
-  </resources>
-  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="AdminApp" >
-    <param name="requiredFXVersion" value="8.0+"/>
-  </applet-desc>
-  <jfx:javafx-desc  width="800" height="600" main-class="adminapp.Main"  name="AdminApp" />
-  <update check="always"/>
+    <information>
+        <title>AdminApp</title>
+        <vendor>Emilia</vendor>
+        <description>null</description>
+        <offline-allowed/>
+    </information>
+    <resources>
+        <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+        <jar href="AdminApp.jar" size="1386935" download="eager" />
+        <jar href="lib\commons-codec-1.10.jar" size="284184" download="eager" />
+        <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
+        <jar href="lib\jfoenix.jar" size="2206526" download="eager" />
+        <jar href="lib\poi-3.15.jar" size="2579580" download="eager" />
+        <jar href="lib\poi-ooxml-3.15.jar" size="1338241" download="eager" />
+        <jar href="lib\poi-ooxml-schemas-3.15.jar" size="5859007" download="eager" />
+        <jar href="lib\stax-api-1.0-2.jar" size="23346" download="eager" />
+        <jar href="lib\xmlbeans-2.6.0.jar" size="2730866" download="eager" />
+    </resources>
+    <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="AdminApp" >
+        <param name="requiredFXVersion" value="8.0+"/>
+    </applet-desc>
+    <jfx:javafx-desc  width="800" height="600" main-class="adminapp.Main"  name="AdminApp" />
+    <update check="always"/>
 </jnlp>

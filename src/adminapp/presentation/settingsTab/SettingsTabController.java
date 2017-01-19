@@ -5,33 +5,17 @@
  */
 package adminapp.presentation.settingsTab;
 
-import com.sun.javafx.scene.control.skin.TableHeaderRow;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
-import serializable.model.Competition;
-import adminapp.model.CurrentTournament;
 import adminapp.model.SocketServer;
 import adminapp.presentation.RootLayoutController;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.net.URL;
 import java.net.UnknownHostException;
-import java.util.Random;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Platform;
-import javafx.concurrent.Task;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
 /**
@@ -41,12 +25,12 @@ import javafx.scene.control.Label;
 public class SettingsTabController implements Initializable {
 
     private RootLayoutController rootController;
-    
+
     private boolean serverOn = false;
 
-    @FXML 
+    @FXML
     private Label serverInfo;
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -63,24 +47,22 @@ public class SettingsTabController implements Initializable {
     @FXML
     private void handleServerBtn() {
 
+        if (serverOn) {
+            return;
+        }
 
-        if(serverOn) return;
-        
         InetAddress IP;
         try {
             IP = InetAddress.getLocalHost();
-            serverInfo.setText("IP: "+IP.getHostAddress());
+            serverInfo.setText("IP: " + IP.getHostAddress());
         } catch (UnknownHostException ex) {
             Logger.getLogger(SettingsTabController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
         Thread th = new Thread(() -> {
             try {
                 SocketServer.runServer();
-                
-                
-                
+
             } catch (IOException ex) {
                 Logger.getLogger(SettingsTabController.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
@@ -91,6 +73,6 @@ public class SettingsTabController implements Initializable {
         th.start();
 
         serverOn = true;
-                 
+
     }
 }

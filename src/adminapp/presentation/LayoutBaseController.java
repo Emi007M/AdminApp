@@ -5,17 +5,10 @@
  */
 package adminapp.presentation;
 
-import adminapp.presentation.manageTournamentsTab.ManageTournamentsTabController;
-import adminapp.presentation.manageTournamentsTab.BtnSetController;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 
 /**
@@ -23,10 +16,10 @@ import javafx.scene.layout.FlowPane;
  * @author Emilia
  */
 public abstract class LayoutBaseController implements Initializable {
-     @FXML
+
+    @FXML
     protected FlowPane mainFlow;
 
-   
     protected RootLayoutController rootController;
 
     @Override
@@ -34,15 +27,12 @@ public abstract class LayoutBaseController implements Initializable {
     //  titleLabel.setText(CurrentTournament.getTournamentTitle());
 
     abstract public void init();
-    
-   
-    
-    
+
     public void setRootController(RootLayoutController r) {
         rootController = r;
     }
-    
-    public RootLayoutController getRootLayoutController(){
+
+    public RootLayoutController getRootLayoutController() {
         return rootController;
     }
 

@@ -5,6 +5,9 @@
  */
 package adminapp.presentation;
 
+import adminapp.presentation.currentTournamentTab.CurrentTournamentTabController;
+import adminapp.presentation.manageTournamentsTab.ManageTournamentsTabController;
+import adminapp.presentation.settingsTab.SettingsTabController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,15 +16,8 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
-import serializable.model.Competition;
-import adminapp.model.CurrentTournament;
-import adminapp.presentation.currentTournamentTab.CurrentTournamentTabController;
-import adminapp.presentation.manageTournamentsTab.ManageTournamentsTabController;
-import adminapp.presentation.settingsTab.SettingsTabController;
 import javafx.stage.Stage;
 
 /**
@@ -31,7 +27,7 @@ import javafx.stage.Stage;
 public class RootLayoutController implements Initializable {
 
     private Stage primaryStage;
-    
+
     @FXML
     TabPane tabs;
 
@@ -45,9 +41,7 @@ public class RootLayoutController implements Initializable {
     private Tab tabSettings;
     private SettingsTabController settingsController;
 
-    
     boolean initialized = false;
-    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -55,7 +49,7 @@ public class RootLayoutController implements Initializable {
             FXMLLoader loader0 = new FXMLLoader(getClass().getResource("manageTournamentsTab/ManageTournamentsTab.fxml"));
             tabs.getTabs().get(0).setContent(loader0.load());
             manageTournamentsController = loader0.getController();
-            
+
             FXMLLoader loader1 = new FXMLLoader(getClass().getResource("currentTournamentTab/CurrentTournamentTab.fxml"));
             tabs.getTabs().get(1).setContent(loader1.load());
             currentTournamentController = loader1.getController();
@@ -65,31 +59,27 @@ public class RootLayoutController implements Initializable {
             tabs.getTabs().get(2).setContent(loader2.load());
             settingsController = loader2.getController();
 
-
         } catch (IOException ex) {
             Logger.getLogger(RootLayoutController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
 //        tabs.getTabs().get(1).setDisable(true);
 //        tabs.getTabs().get(2).setDisable(true);
 //        tabs.getTabs().get(3).setDisable(true);
-
         initialized = true;
     }
 
     public void init() {
         System.out.println("adminapp.presentation.RootLayoutController.init()");
-       currentTournamentController.init();
+        currentTournamentController.init();
     }
 
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
-    
-    public Stage getPrimaryStage(){
+
+    public Stage getPrimaryStage() {
         return primaryStage;
     }
-    
-    
-  
+
 }

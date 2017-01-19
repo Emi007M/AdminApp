@@ -26,51 +26,51 @@
             <ScrollPane styleClass="boardMainScroll">
                 <HBox>
                     <VBox>
-                <Label text="Board 1" />
-            <ScrollPane styleClass="boardScrollPane">
-                <content>
-                    <VBox fx:id="box1" styleClass="boardBox"></VBox>
-                </content>
-            </ScrollPane>
-            </VBox>
+                        <Label text="Board 1" />
+                        <ScrollPane styleClass="boardScrollPane">
+                            <content>
+                                <VBox fx:id="box1" styleClass="boardBox"></VBox>
+                            </content>
+                        </ScrollPane>
+                    </VBox>
             
-            <VBox>
-               <Label text="Board 2" />
-            <ScrollPane styleClass="boardScrollPane">
-                <content>
-                    <VBox fx:id="box2" styleClass="boardBox"></VBox>
-                </content>
-            </ScrollPane> 
-            </VBox>
+                    <VBox>
+                        <Label text="Board 2" />
+                        <ScrollPane styleClass="boardScrollPane">
+                            <content>
+                                <VBox fx:id="box2" styleClass="boardBox"></VBox>
+                            </content>
+                        </ScrollPane> 
+                    </VBox>
             
-            <VBox>
-            <Label text="Board 3" />
-            <ScrollPane styleClass="boardScrollPane">
-                <content>
-                    <VBox fx:id="box3" styleClass="boardBox"></VBox>
-                </content>
-            </ScrollPane>
-            </VBox>
+                    <VBox>
+                        <Label text="Board 3" />
+                        <ScrollPane styleClass="boardScrollPane">
+                            <content>
+                                <VBox fx:id="box3" styleClass="boardBox"></VBox>
+                            </content>
+                        </ScrollPane>
+                    </VBox>
             
-            <VBox>
-            <Label text="Board 4" />
-            <ScrollPane styleClass="boardScrollPane">
-                <content>
-                    <VBox fx:id="box4" styleClass="boardBox"></VBox>
-                </content>
-            </ScrollPane>
-            </VBox>
+                    <VBox>
+                        <Label text="Board 4" />
+                        <ScrollPane styleClass="boardScrollPane">
+                            <content>
+                                <VBox fx:id="box4" styleClass="boardBox"></VBox>
+                            </content>
+                        </ScrollPane>
+                    </VBox>
                 </HBox>
             </ScrollPane>
             
             
             <VBox>
-            <Label text="Drag starting lists and drop to one of the boards" />
-            <ScrollPane prefHeight="200.0" prefWidth="1200.0">
-                <content>
-                    <VBox fx:id="box0" styleClass="boardBox"></VBox>
-                </content>
-            </ScrollPane>
+                <Label text="Drag starting lists and drop to one of the boards" />
+                <ScrollPane prefHeight="200.0" prefWidth="1200.0">
+                    <content>
+                        <VBox fx:id="box0" styleClass="boardBox"></VBox>
+                    </content>
+                </ScrollPane>
             </VBox>
             
         </FlowPane>

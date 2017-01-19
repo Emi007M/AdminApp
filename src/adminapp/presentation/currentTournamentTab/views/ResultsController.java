@@ -1,23 +1,16 @@
 package adminapp.presentation.currentTournamentTab.views;
 
+import adminapp.model.CurrentTournament;
+import adminapp.presentation.ViewBaseController;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
-import serializable.model.Competition;
-import adminapp.model.CurrentTournament;
-import adminapp.presentation.ViewBaseController;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXToggleButton;
-import static javafx.application.Platform.runLater;
-import javafx.print.PageLayout;
-import javafx.print.PrinterJob;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-import javafx.scene.transform.Scale;
+import javafx.scene.text.Text;
+import serializable.model.Competition;
 
 /**
  *
@@ -27,7 +20,6 @@ public class ResultsController extends ViewBaseController {
 
     @FXML
     private VBox listsBox;
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -39,31 +31,34 @@ public class ResultsController extends ViewBaseController {
     public void updateLists() {
 
         ArrayList<Node> tList = new ArrayList<>();
-        
+
         System.out.println("Results updating");
 
         for (Competition c : CurrentTournament.getTournamentCompetitions()) {
-            if(!c.isFinished()) continue;
+            if (!c.isFinished()) {
+                continue;
+            }
 
-            if(!c.hasResults()) c.setResults();
-   
-            Text title = new Text(c.getID().toString()+". "+c.getTitle());  
-            
+            if (!c.hasResults()) {
+                c.setResults();
+            }
+
+            Text title = new Text(c.getID().toString() + ". " + c.getTitle());
+
             ArrayList<String> results = c.getResults();
             ArrayList<Label> results_t = new ArrayList<>();
-            for(String s : results)
+            for (String s : results) {
                 results_t.add(new Label(s));
-            
+            }
+
 //            JFXButton seeChart = new JFXButton("PRINT BRACKETS");
 //            seeChart.setOnAction(e -> handleSeeChartBtn(c.getID()));
 //            TextFlow t2 = new TextFlow(competitors, seeChart);
-            
             VBox container = new VBox(title);
             container.getChildren().addAll(results_t);
-            
+
             title.getStyleClass().add("startingList-top");
             container.getStyleClass().add("startingList-container");
-            
 
             tList.add(container);
 

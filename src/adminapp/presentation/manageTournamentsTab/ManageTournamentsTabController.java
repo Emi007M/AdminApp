@@ -5,31 +5,12 @@
  */
 package adminapp.presentation.manageTournamentsTab;
 
-import adminapp.presentation.manageTournamentsTab.views.TournamentListController;
-import adminapp.presentation.manageTournamentsTab.views.NewTournamentController;
-import com.sun.javafx.scene.control.skin.TableHeaderRow;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
-import serializable.model.Competition;
-import adminapp.model.CurrentTournament;
 import adminapp.presentation.LayoutBaseController;
-import adminapp.presentation.RootLayoutController;
-import adminapp.presentation.ViewBaseController;
-
-import adminapp.presentation.manageTournamentsTab.BtnSetController;
+import adminapp.presentation.manageTournamentsTab.views.NewTournamentController;
+import adminapp.presentation.manageTournamentsTab.views.TournamentListController;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
@@ -41,8 +22,6 @@ import javafx.scene.layout.FlowPane;
  */
 public class ManageTournamentsTabController extends LayoutBaseController {
 
-    
-    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //  titleLabel.setText(CurrentTournament.getTournamentTitle());
@@ -53,9 +32,8 @@ public class ManageTournamentsTabController extends LayoutBaseController {
     public void init() {
         setPrimaryBtnSet();
     }
-    
-    /*--Button views initialization--*/
 
+    /*--Button views initialization--*/
     private void setPrimaryBtnSet() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -71,10 +49,7 @@ public class ManageTournamentsTabController extends LayoutBaseController {
 
     }
 
-    
     /*--Executive views initialization--*/
-    
-    
     protected void setTournamentList() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -84,7 +59,7 @@ public class ManageTournamentsTabController extends LayoutBaseController {
 
             TournamentListController controller = (TournamentListController) loader.getController();
             controller.setTabController(this);
-            
+
             controller.updateList();
 
         } catch (IOException ex) {
@@ -106,7 +81,5 @@ public class ManageTournamentsTabController extends LayoutBaseController {
             Logger.getLogger(ManageTournamentsTabController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-   
 
 }

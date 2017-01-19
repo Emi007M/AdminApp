@@ -16,7 +16,7 @@ HBox {
 }
 
 .scroll-pane > .viewport {
-   -fx-background-color: transparent;
+    -fx-background-color: transparent;
 }
 .scroll-pane {
     -fx-background-color: transparent;
@@ -33,7 +33,7 @@ HBox {
 
 
 #mainFlow .label#titleLabel {
-        -fx-font-size: 32;
+    -fx-font-size: 32;
 }
 
 
@@ -133,15 +133,15 @@ HBox {
 
 /*jfx buttons*/
 .button {
--fx-padding: 0.7em 0.57em;
+    -fx-padding: 0.7em 0.57em;
     -fx-font-size: 14px;
 
     -fx-background-color: rgb(77,102,204);
     -fx-margin: 1em 0em;
--fx-text-fill: rgba(255,255,255,0.8);
--fx-font-weight:bold;
+    -fx-text-fill: rgba(255,255,255,0.8);
+    -fx-font-weight:bold;
 
--fx-cursor: hand;
+    -fx-cursor: hand;
 
 
 }
