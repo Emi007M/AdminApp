@@ -1,4 +1,4 @@
-package adminapp.model;
+package adminapp.model.data;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,7 +22,7 @@ import serializable.model.Tournament;
 
 /**
  *
- * @author Jacek
+ * @author Emilia
  */
 public class DataRegistration {
 

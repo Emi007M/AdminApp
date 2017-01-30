@@ -15,7 +15,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import serializable.model.Competition;
-import serializable.model.Serializator;
+import serializable.model.data.Serializator;
 import serializable.model.Tournament;
 
 /**

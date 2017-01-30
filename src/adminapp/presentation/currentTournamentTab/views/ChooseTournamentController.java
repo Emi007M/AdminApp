@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
-import serializable.model.Serializator;
+import serializable.model.data.Serializator;
 import serializable.model.Tournament;
 
 /**

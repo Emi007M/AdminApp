@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/W:/Netbeans%20Projects/AdminApp/src/adminapp/Main.java</file>
+            <file>file:/W:/Netbeans%20Projects/AdminApp/src/serializable/model/Tournament.java</file>
             <file>file:/W:/Netbeans%20Projects/AdminApp/src/adminapp/model/CurrentTournament.java</file>
-            <file>file:/W:/Netbeans%20Projects/AdminApp/src/adminapp/model/Dictionary.java</file>
-            <file>file:/W:/Netbeans%20Projects/AdminApp/src/adminapp/presentation/manageTournamentsTab/views/NewTournamentController.java</file>
-            <file>file:/W:/Netbeans%20Projects/AdminApp/nbproject/jfx-impl.xml</file>
+            <file>file:/W:/Netbeans%20Projects/AdminApp/src/adminapp/presentation/currentTournamentTab/views/ChooseTournamentController.java</file>
+            <file>file:/W:/Netbeans%20Projects/AdminApp/src/adminapp/model/data/DataRegistration.java</file>
+            <file>file:/W:/Netbeans%20Projects/AdminApp/src/serializable/model/data/Serializator.java</file>
+            <file>file:/W:/Netbeans%20Projects/AdminApp/src/adminapp/presentation/manageTournamentsTab/views/TournamentListController.java</file>
             <file>file:/W:/Netbeans%20Projects/AdminApp/src/adminapp/presentation/currentTournamentTab/views/ContestantsController.java</file>
         </group>
     </open-files>

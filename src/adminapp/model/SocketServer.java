@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package adminapp.model;
 
 /**
@@ -19,12 +14,6 @@ import java.util.logging.Logger;
 import serializable.model.Competition;
 import serializable.model.Message;
 
-/**
- * This class implements java Socket server
- *
- * @author pankaj
- *
- */
 public class SocketServer implements Runnable {
 
     //static ServerSocket variable
@@ -85,75 +74,5 @@ public class SocketServer implements Runnable {
             }
         }
     }
-
-//    private static class Connection extends Thread {
-//        private Socket socket;
-//        private int clientNumber;
-//
-//        public Connection(Socket socket, int clientNumber) {
-//            this.socket = socket;
-//            this.clientNumber = clientNumber;
-//          //  log("New connection with client# " + clientNumber + " at " + socket);
-//        }
-//
-//        /**
-//         * Services this thread's client by first sending the client a welcome
-//         * message then repeatedly reading strings and sending back the
-//         * capitalized version of the string.
-//         */
-//        public void run() {
-//            InputStream is = null;
-//            ObjectInputStream ois = null;
-//            
-//            OutputStream os = null;
-//            ObjectOutputStream oos = null;
-//            try {
-//
-//                // Decorate the streams so we can send characters
-//                // and not just bytes.  Ensure output is flushed
-//                // after every newline.
-//                BufferedReader in = new BufferedReader(
-//                        new InputStreamReader(socket.getInputStream()));
-//                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-//
-//                // Send a welcome message to the client.
-//                out.println("Hello, you are client #" + clientNumber + ".");
-//                out.println("Enter a line with only a period to quit\n");
-//
-//                // Get messages from the client, line by line; return them
-//                // capitalized
-//                while (true) {
-//
-//                    is = socket.getInputStream();
-//                    ois = new ObjectInputStream(is);
-//                    Message received = (Message) ois.readObject();
-//                    if (received == null) {
-//                        break;
-//                    }
-//                    System.out.println("client asked: ");
-//
-////                    os = socket.getOutputStream();
-////                    oos = new ObjectOutputStream(os);
-////                    Message toSend = new Message("object from client");
-////                    oos.writeObject(toSend);
-//                    //oos.flush();
-//                    
-//                }
-//            } catch (IOException e) {
-//          //      log("Error handling client# " + clientNumber + ": " + e);
-//            } catch (ClassNotFoundException ex) {
-//          //      Logger.getLogger(ContentsServer.class.getName()).log(Level.SEVERE, null, ex);
-//            } finally {
-//                try {
-//                    oos.close();
-//                    os.close();
-//                    socket.close();
-//                } catch (IOException e) {
-//         //           log("Couldn't close a socket, what's going on?");
-//                }
-//        //        log("Connection with client# " + clientNumber + " closed");
-//            }
-//        }
-//    }
-//    
+  
 }

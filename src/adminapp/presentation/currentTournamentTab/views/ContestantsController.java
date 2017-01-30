@@ -1,7 +1,7 @@
 package adminapp.presentation.currentTournamentTab.views;
 
 import adminapp.model.CurrentTournament;
-import adminapp.model.DataRegistration;
+import adminapp.model.data.DataRegistration;
 import adminapp.presentation.ViewBaseController;
 import java.io.IOException;
 import java.net.URL;
