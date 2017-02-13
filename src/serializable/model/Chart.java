@@ -5,14 +5,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import static java.util.Comparator.comparingInt;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import static java.util.stream.Collectors.toMap;
 import java.util.stream.Stream;
 
 /**
@@ -118,7 +116,7 @@ public class Chart implements Serializable {
 
             int slice = 1;
             while (slice < bracket_list.size() / 2) {
-                ArrayList tmp = new ArrayList(bracket_list);
+                ArrayList<Integer> tmp = new ArrayList(bracket_list);
                 bracket_list.clear();
 
                 while (tmp.size() > 0) {

@@ -21,9 +21,9 @@
         <HBox>
             <children>
                 <Button fx:id="gobackBtn" styleClass="goBackBtn" text="go back" textAlignment="CENTER" wrapText="true" />
-                <Label fx:id="titleLabel" text="New Tournament" />   
+                <Label fx:id="titleLabel" text="%t1.title.new-tournament" />   
                 <Label text=" " />     
-                <JFXButton fx:id="saveBtn" buttonType="RAISED" defaultButton="true" onAction="#handleSaveBtn" ripplerFill="#3f17e1" text="SAVE" textAlignment="CENTER"/>
+                <JFXButton fx:id="saveBtn" buttonType="RAISED" defaultButton="true" onAction="#handleSaveBtn" ripplerFill="#3f17e1" text="%t1.save" textAlignment="CENTER"/>
                      
             </children>
         </HBox>
@@ -32,14 +32,14 @@
              
                 <VBox alignment="TOP_CENTER" maxWidth="600.0" spacing="20.0">
                     <children>
-                        <JFXTextField fx:id="nameField" labelFloat="true" promptText="Tournament Name" />
-                        <JFXDatePicker fx:id="dateField" defaultColor="#4059a9" promptText="pick date" />
-                        <JFXTextField fx:id="placeField" labelFloat="true" promptText="Place" />
+                        <JFXTextField fx:id="nameField" labelFloat="true" promptText="%t1.tournament-name" />
+                        <JFXDatePicker fx:id="dateField" defaultColor="#4059a9" promptText="%t1.date" />
+                        <JFXTextField fx:id="placeField" labelFloat="true" promptText="%t1.place" />
                   
                         <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="600.0" spacing="20">
                             <children>
-                                <Label text="Competitions" id="label-medium"/>
-                                <JFXButton fx:id="addBtn" buttonType="RAISED" onAction="#handleAddListBtn" text="Add" />
+                                <Label text="%t1.competitions" id="label-medium"/>
+                                <JFXButton fx:id="addBtn" buttonType="RAISED" onAction="#handleAddListBtn" text="%t1.add" />
                             </children>
                         </HBox>
                   

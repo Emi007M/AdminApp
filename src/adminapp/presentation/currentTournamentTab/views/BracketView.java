@@ -255,16 +255,7 @@ public class BracketView extends Region {
                         ).divide(zoomGroup.scaleYProperty())//.divide(new ZoomBinding(zoomGroup))
         );
 
-//        lvlNames.layoutYProperty().addListener((observable, oldValue, newValue) -> {
-//            System.out.println("pos" + lvlNames.getLayoutY()
-//                    + "\tScale " + zoomGroup.getScaleY()
-//                    + "\ttimes  " + bracketScrollPane.getVvalue()
-//                    + "\ttimes (" + bracketScrollPane.getContent().getBoundsInLocal().getHeight()
-//                    + "\t- " + bracketScrollPane.getBoundsInLocal().getHeight()
-//                    + "\t/" + bracketScrollPane.getHeight()
-//                    + "\tb " + bracketScrollPane.getViewportBounds().getHeight()
-//                    + ")\t=" + (bracketScrollPane.getVvalue() * (bracketScrollPane.getContent().getBoundsInLocal().getHeight() - bracketScrollPane.getViewportBounds().getHeight())));
-//        });
+
         zoomGroup.setMinSize(10.0, 10.0);
 
         //
@@ -273,16 +264,7 @@ public class BracketView extends Region {
                 lvlNames.getParent().getParent().getLayoutX(),
                 lvlNames.getParent().getParent().getLayoutY()
         );
-//        bracketScrollPane.viewportBoundsProperty().addListener(
-//                new ChangeListener<Bounds>() {
-//            @Override
-//            public void changed(ObservableValue<? extends Bounds> observableValue, Bounds oldBounds, Bounds newBounds) {
-//                zoomGroup.setPrefSize(
-//                        lvlNames.getParent().getParent().getLayoutX(),
-//                        lvlNames.getParent().getParent().getLayoutY()
-//                );
-//            }
-//        });
+
 
     }
 
@@ -300,19 +282,5 @@ public class BracketView extends Region {
             return root.getViewportBounds().getHeight();
         }
     }
-//
-//    private static class ZoomBinding extends DoubleBinding {
-//
-//        private final StackPane zoomGroup;
-//
-//        public ZoomBinding(StackPane zoomGroup) {
-//            this.zoomGroup = zoomGroup;
-//            super.bind(zoomGroup.scaleYProperty());
-//        }
-//
-//        @Override
-//        protected double computeValue() {   
-//            return zoomGroup.getScaleY();
-//        }
-//    }
+
 }

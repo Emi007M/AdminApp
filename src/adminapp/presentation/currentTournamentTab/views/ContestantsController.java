@@ -1,6 +1,7 @@
 package adminapp.presentation.currentTournamentTab.views;
 
 import adminapp.model.CurrentTournament;
+import adminapp.model.Dictionary;
 import adminapp.model.data.DataRegistration;
 import adminapp.presentation.ViewBaseController;
 import java.io.IOException;
@@ -52,6 +53,7 @@ public class ContestantsController extends ViewBaseController {
         for (Competition c : CurrentTournament.getTournamentCompetitions()) {
             try {
                 FXMLLoader loader = new FXMLLoader();
+                loader.setResources(Dictionary.getBundle());
                 loader.setLocation(getClass().getResource("ContestantsListView.fxml"));
 
                 TitledPane pane = (TitledPane) loader.load();
@@ -75,12 +77,12 @@ public class ContestantsController extends ViewBaseController {
     @FXML
     public void handleGenerateFormBtn() {
         Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Application form");
-        alert.setHeaderText("Application form");
-        alert.setContentText("All the settings for the tournament should be final before generating this form. You can always regenerate this form but do it before forwarding it to the clubs.");
+        alert.setTitle(Dictionary.getString("dialog.form.title"));
+        alert.setHeaderText(Dictionary.getString("dialog.form.info"));
+        alert.setContentText(Dictionary.getString("dialog.form.text"));
         alert.showAndWait();
 
-        DataRegistration.generateForm(CurrentTournament.getTournament(), "formularz zgloszeniowy", tabController.getRootLayoutController().getPrimaryStage());
+        DataRegistration.generateForm(CurrentTournament.getTournament(), Dictionary.getString("t2.application-form"), tabController.getRootLayoutController().getPrimaryStage());
     }
 
     @FXML
@@ -92,15 +94,15 @@ public class ContestantsController extends ViewBaseController {
 
         if (success) {
             Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Import");
-            alert.setHeaderText("Succesful import");
-            alert.setContentText("All the athletes who were not yet on the lists were succesfully added. Use \"Save changes\" button to keep the data.");
+            alert.setTitle(Dictionary.getString("dialog.import.title"));
+            alert.setHeaderText(Dictionary.getString("dialog.import.info"));
+            alert.setContentText(Dictionary.getString("dialog.import.text"));
             alert.showAndWait();
         } else {
             Alert alert = new Alert(AlertType.WARNING);
-            alert.setTitle("Import");
-            alert.setHeaderText("Import failure");
-            alert.setContentText("Something went wrong. Check, wether you have selected a correct file.");
+            alert.setTitle(Dictionary.getString("dialog.import.title"));
+            alert.setHeaderText(Dictionary.getString("dialog.import.info.fail"));
+            alert.setContentText(Dictionary.getString("dialog.import.text.fail"));
             alert.showAndWait();
         }
 
@@ -109,9 +111,9 @@ public class ContestantsController extends ViewBaseController {
     @FXML
     public void handleSaveChangesBtn() {
         Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Saving changes");
-        alert.setHeaderText("Saving changes");
-        alert.setContentText("Are you sure, you want to save all the changes?");
+        alert.setTitle(Dictionary.getString("dialog.save.title"));
+        alert.setHeaderText(Dictionary.getString("dialog.save.info"));
+        alert.setContentText(Dictionary.getString("dialog.save.text"));
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {

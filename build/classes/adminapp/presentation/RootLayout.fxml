@@ -16,15 +16,15 @@
         <JFXTabPane fx:id="tabs" prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
             <tabs>
             
-                <Tab fx:id="tabManageTournaments" text="MANAGE TOURNAMENTS">
+                <Tab fx:id="tabManageTournaments" text="%tab.manage-tournaments">
                     <content>
                     </content>
                 </Tab>
-                <Tab fx:id="tabCurrentTournament" text="CURRENT TOURNAMENT">
+                <Tab fx:id="tabCurrentTournament" text="%tab.current-tournament">
                     <content>
                     </content>
                 </Tab>
-                <Tab fx:id="tabSettings" text="SETTINGS">
+                <Tab fx:id="tabSettings" text="%tab.settings">
                     <content>
                     </content>
                 </Tab>

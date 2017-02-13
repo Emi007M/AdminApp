@@ -17,7 +17,7 @@
         <HBox>
             <children>
                 <Button fx:id="gobackBtn" styleClass="goBackBtn" text="go back" textAlignment="CENTER" wrapText="true" />
-                <Label fx:id="titleLabel" text="Results of finished categories" />
+                <Label fx:id="titleLabel" text="%t2.title-results" />
 
             </children>
         </HBox>

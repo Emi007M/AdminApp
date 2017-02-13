@@ -16,7 +16,7 @@
         <HBox>
             <children>
                 <Button fx:id="gobackBtn" styleClass="goBackBtn" text="go back" textAlignment="CENTER" wrapText="true" />
-                <Label fx:id="titleLabel" text="Tournament List" />             
+                <Label fx:id="titleLabel" text="%t1.title.tournament-list" />             
             </children>
         </HBox>
         <VBox fx:id="VBox" prefHeight="200.0" prefWidth="800.0" spacing="10" />

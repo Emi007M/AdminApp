@@ -10,8 +10,8 @@
           fx:controller="adminapp.presentation.manageTournamentsTab.BtnSetController">
     <children>
      
-        <Button fx:id="listBtn" styleClass="btnTile" text="LIST OF TOURNAMENTS" textAlignment="CENTER" wrapText="true" />
-        <Button fx:id="newBtn" styleClass="btnTile" text="ADD NEW TOURNAMENT" textAlignment="CENTER" wrapText="true" />
+        <Button fx:id="listBtn" styleClass="btnTile" text="%t1.tile.list" textAlignment="CENTER" wrapText="true" />
+        <Button fx:id="newBtn" styleClass="btnTile" text="%t1.tile.add" textAlignment="CENTER" wrapText="true" />
         
     </children>
     <FlowPane.margin>

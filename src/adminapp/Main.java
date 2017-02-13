@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package adminapp;
 
 import adminapp.model.Dictionary;
@@ -57,6 +52,7 @@ public class Main extends Application {
 
             // Load root layout from fxml file.            
             FXMLLoader loader = new FXMLLoader();
+            loader.setResources(Dictionary.getBundle());
             loader.setLocation(getClass().getResource("presentation/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
 

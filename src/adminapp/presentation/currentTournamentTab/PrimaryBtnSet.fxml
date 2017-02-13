@@ -10,11 +10,11 @@
           fx:controller="adminapp.presentation.currentTournamentTab.PrimaryBtnSetController">
     <children>
      
-        <Button fx:id="contestantsBtn" styleClass="btnTile" text="ATHLETES" textAlignment="CENTER" wrapText="true" />
-        <Button fx:id="listsBtn" styleClass="btnTile" text="STARTING LISTS" textAlignment="CENTER" wrapText="true" />
-        <Button fx:id="boardsBtn" styleClass="btnTile" text="MANAGE BOARDS" textAlignment="CENTER" wrapText="true" />
-        <Button fx:id="resultsBtn" styleClass="btnTile" text="RESULTS" textAlignment="CENTER" wrapText="true" />
-        <Button fx:id="changeBtn" styleClass="btnTile" text="CHANGE TOURNAMENT" textAlignment="CENTER" wrapText="true" />
+        <Button fx:id="contestantsBtn" styleClass="btnTile" text="%t2.tile.athletes" textAlignment="CENTER" wrapText="true" />
+        <Button fx:id="listsBtn" styleClass="btnTile" text="%t2.tile.lists" textAlignment="CENTER" wrapText="true" />
+        <Button fx:id="boardsBtn" styleClass="btnTile" text="%t2.tile.boards" textAlignment="CENTER" wrapText="true" />
+        <Button fx:id="resultsBtn" styleClass="btnTile" text="%t2.tile.results" textAlignment="CENTER" wrapText="true" />
+        <Button fx:id="changeBtn" styleClass="btnTile" text="%t2.tile.change" textAlignment="CENTER" wrapText="true" />
         
     </children>
     <FlowPane.margin>

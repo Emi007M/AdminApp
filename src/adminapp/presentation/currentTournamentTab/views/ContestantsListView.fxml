@@ -17,32 +17,32 @@
             <children>
                 <TableView fx:id="tableView" editable="true" prefHeight="300.0" prefWidth="774.0">
                     <columns>
-                        <TableColumn fx:id="colClub" minWidth="100.0" prefWidth="200.0" text="Club">
+                        <TableColumn fx:id="colClub" minWidth="100.0" prefWidth="200.0" text="%t2.club">
                             <cellValueFactory>
                                 <PropertyValueFactory property="club" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="colName" minWidth="50.0" prefWidth="150.0" text="Name">
+                        <TableColumn fx:id="colName" minWidth="50.0" prefWidth="150.0" text="%t2.name">
                             <cellValueFactory>
                                 <PropertyValueFactory property="name" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="colSurname" minWidth="100.0" prefWidth="200.0" text="Surname" >
+                        <TableColumn fx:id="colSurname" minWidth="100.0" prefWidth="200.0" text="%t2.surname" >
                             <cellValueFactory>
                                 <PropertyValueFactory property="surname" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="colDegree" minWidth="10.0" prefWidth="80.0" text="Degree" >
+                        <TableColumn fx:id="colDegree" minWidth="10.0" prefWidth="80.0" text="%t2.degree" >
                             <cellValueFactory>
                                 <PropertyValueFactory property="degree" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="colYear" minWidth="10.0" prefWidth="90.0" text="Year" >
+                        <TableColumn fx:id="colYear" minWidth="10.0" prefWidth="90.0" text="%t2.year" >
                             <cellValueFactory>
                                 <PropertyValueFactory property="year" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="colRanked" minWidth="10.0" prefWidth="80.0" text="Ranked" >
+                        <TableColumn fx:id="colRanked" minWidth="10.0" prefWidth="80.0" text="%t2.ranked" >
                             <cellValueFactory>
                                 <PropertyValueFactory property="rank" />
                             </cellValueFactory>
@@ -51,8 +51,8 @@
                 </TableView>
                 <ButtonBar prefHeight="40.0" prefWidth="200.0">
                     <buttons>
-                        <Button fx:id="AddBtn" onAction="#handleAddBtn" mnemonicParsing="false" text="Add single player" />
-                        <Button fx:id="removeBtn" onAction="#handleRemoveBtn" mnemonicParsing="false" text="Remove player" />
+                        <Button fx:id="AddBtn" onAction="#handleAddBtn" mnemonicParsing="false" text="%t2.add-player" />
+                        <Button fx:id="removeBtn" onAction="#handleRemoveBtn" mnemonicParsing="false" text="%t2.remove" />
                     </buttons>
                 </ButtonBar>
             </children>

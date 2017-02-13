@@ -17,9 +17,9 @@
         <HBox>
             <children>
                 <Button fx:id="gobackBtn" styleClass="goBackBtn" text="go back" textAlignment="CENTER" wrapText="true" />
-                <Label fx:id="titleLabel" text="Starting Lists" />
+                <Label fx:id="titleLabel" text="%t2.title.starting-lists" />
                     
-                <JFXToggleButton fx:id="blockedTglBtn" text="blocked" toggleColor="#d00000" toggleLineColor="#cd4141" />
+                <JFXToggleButton fx:id="blockedTglBtn" text="%t2.blocked" toggleColor="#d00000" toggleLineColor="#cd4141" />
             </children>
         </HBox>
        

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package adminapp.presentation;
 
 import java.net.URL;
@@ -24,7 +19,6 @@ public abstract class LayoutBaseController implements Initializable {
 
     @Override
     abstract public void initialize(URL location, ResourceBundle resources);
-    //  titleLabel.setText(CurrentTournament.getTournamentTitle());
 
     abstract public void init();
 

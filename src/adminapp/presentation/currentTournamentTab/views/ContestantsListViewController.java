@@ -1,5 +1,6 @@
 package adminapp.presentation.currentTournamentTab.views;
 
+import adminapp.model.Dictionary;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -81,7 +82,7 @@ public class ContestantsListViewController implements Initializable {
     }
 
     private void initTableView() {
-        this.rootPane.setText("List " + competition.getID() + ". " + competition.getTitle());
+        this.rootPane.setText(Dictionary.getString("t2.list")+" " + competition.getID() + ". " + competition.getTitle());
 
         this.people.addAll(competition.getCompetitors());
 
@@ -164,9 +165,9 @@ public class ContestantsListViewController implements Initializable {
     public void handleRemoveBtn() {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Athlete Romoving");
-        alert.setHeaderText("Remove athlete");
-        alert.setContentText("Are you sure, you want to remove this ahlete from the list?");
+        alert.setTitle(Dictionary.getString("dialog.remove.title"));
+        alert.setHeaderText(Dictionary.getString("dialog.remove.info"));
+        alert.setContentText(Dictionary.getString("dialog.remove.text"));
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {
@@ -183,7 +184,7 @@ public class ContestantsListViewController implements Initializable {
 
     @FXML
     public void handleAddBtn() {
-        Person p = new Person("NAME", "SURNAME", 1111, "x KYU", "CLUB");
+        Person p = new Person(Dictionary.getString("t2.name"), Dictionary.getString("t2.surname"), 1111, "x KYU", Dictionary.getString("t2.club"));
         competition.addPlayer(p);
         people.add(p);
     }

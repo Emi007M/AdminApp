@@ -5,6 +5,7 @@
  */
 package adminapp.presentation.manageTournamentsTab.views;
 
+import adminapp.model.Dictionary;
 import adminapp.presentation.ViewBaseController;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
@@ -89,6 +90,7 @@ public class NewTournamentController extends ViewBaseController {
         try {
             // Load list layout from fxml
             FXMLLoader loader = new FXMLLoader();
+            loader.setResources(Dictionary.getBundle());
             loader.setLocation(getClass().getResource("StartingListLayout.fxml"));
 
             //initialize new list
@@ -142,9 +144,9 @@ public class NewTournamentController extends ViewBaseController {
         t.saveToFile();
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Tournament Created");
-        alert.setHeaderText("Tournament succesfully created");
-        alert.setContentText("Tournament has been succesfully created and saved.");
+        alert.setTitle(Dictionary.getString("dialog.new.title"));
+        alert.setHeaderText(Dictionary.getString("dialog.new.info"));
+        alert.setContentText(Dictionary.getString("dialog.new.text"));
         alert.showAndWait();
     }
 }

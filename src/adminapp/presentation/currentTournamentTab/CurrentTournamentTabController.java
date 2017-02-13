@@ -1,6 +1,7 @@
 package adminapp.presentation.currentTournamentTab;
 
 import adminapp.model.CurrentTournament;
+import adminapp.model.Dictionary;
 import adminapp.presentation.LayoutBaseController;
 import adminapp.presentation.currentTournamentTab.views.ChooseTournamentController;
 import adminapp.presentation.currentTournamentTab.views.ContestantsController;
@@ -48,6 +49,7 @@ public class CurrentTournamentTabController extends LayoutBaseController {
     private void setPrimaryBtnSet() {
         try {
             FXMLLoader loader = new FXMLLoader();
+            loader.setResources(Dictionary.getBundle());
             loader.setLocation(getClass().getResource("PrimaryBtnSet.fxml"));
             mainFlow.getChildren().clear();
             mainFlow.getChildren().setAll((FlowPane) loader.load());
@@ -63,6 +65,7 @@ public class CurrentTournamentTabController extends LayoutBaseController {
     private void setNullBtnSet() {
         try {
             FXMLLoader loader = new FXMLLoader();
+            loader.setResources(Dictionary.getBundle());
             loader.setLocation(getClass().getResource("NullBtnSet.fxml"));
             mainFlow.getChildren().clear();
             mainFlow.getChildren().setAll((FlowPane) loader.load());
@@ -79,6 +82,7 @@ public class CurrentTournamentTabController extends LayoutBaseController {
     protected void setContestants() {
         try {
             FXMLLoader loader = new FXMLLoader();
+            loader.setResources(Dictionary.getBundle());
             loader.setLocation(getClass().getResource("views/Contestants.fxml"));
             mainFlow.getChildren().clear();
             mainFlow.getChildren().setAll((FlowPane) loader.load());
@@ -96,6 +100,7 @@ public class CurrentTournamentTabController extends LayoutBaseController {
     protected void setStartingLists() {
         try {
             FXMLLoader loader = new FXMLLoader();
+            loader.setResources(Dictionary.getBundle());
             loader.setLocation(getClass().getResource("views/StartingLists.fxml"));
             mainFlow.getChildren().clear();
             mainFlow.getChildren().setAll((FlowPane) loader.load());
@@ -111,6 +116,7 @@ public class CurrentTournamentTabController extends LayoutBaseController {
     protected void setManageBoards() {
         try {
             FXMLLoader loader = new FXMLLoader();
+            loader.setResources(Dictionary.getBundle());
             loader.setLocation(getClass().getResource("views/ManageBoards.fxml"));
             mainFlow.getChildren().clear();
             mainFlow.getChildren().setAll((FlowPane) loader.load());
@@ -128,6 +134,7 @@ public class CurrentTournamentTabController extends LayoutBaseController {
     protected void setResults() {
         try {
             FXMLLoader loader = new FXMLLoader();
+            loader.setResources(Dictionary.getBundle());
             loader.setLocation(getClass().getResource("views/Results.fxml"));
             mainFlow.getChildren().clear();
             mainFlow.getChildren().setAll((FlowPane) loader.load());
@@ -143,6 +150,7 @@ public class CurrentTournamentTabController extends LayoutBaseController {
     protected void setChooseTournament() {
         try {
             FXMLLoader loader = new FXMLLoader();
+            loader.setResources(Dictionary.getBundle());
             loader.setLocation(getClass().getResource("views/ChooseTournament.fxml"));
             mainFlow.getChildren().clear();
             mainFlow.getChildren().setAll((FlowPane) loader.load());

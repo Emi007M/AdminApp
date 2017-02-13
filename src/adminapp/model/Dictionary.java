@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package adminapp.model;
 
 import java.util.Locale;
+import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 /**
@@ -31,7 +27,18 @@ public final class Dictionary {
     }
 
     public static String getString(String key) {
-        return messages.getString(key);
+        try {  
+            return messages.getString(key);
+        } catch (MissingResourceException e) {  
+            System.err.println(e);  
+  
+            return "err#";  
+        }  
+        
+    }
+    
+    public static ResourceBundle getBundle(){
+        return messages;
     }
 
 }

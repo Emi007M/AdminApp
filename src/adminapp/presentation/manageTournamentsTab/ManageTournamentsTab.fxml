@@ -14,7 +14,7 @@
       fx:controller="adminapp.presentation.manageTournamentsTab.ManageTournamentsTabController">
     <children>
      
-        <Label fx:id="titleLabel" text="Manage Tournaments">
+        <Label fx:id="titleLabel" text="%t1.title">
             <font>
                 <Font size="36.0" />
             </font>

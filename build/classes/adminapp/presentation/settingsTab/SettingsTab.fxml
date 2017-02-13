@@ -14,7 +14,7 @@
       fx:controller="adminapp.presentation.settingsTab.SettingsTabController">
     <children>
      
-        <Label fx:id="titleLabel" text="Admin Settings">
+        <Label fx:id="titleLabel" text="%t3.title">
             <font>
                 <Font size="36.0" />
             </font>
@@ -25,7 +25,7 @@
         <FlowPane fx:id="mainFlow" hgap="40.0" prefHeight="200.0" prefWidth="200.0" vgap="40.0">
             <children>
 
-                <Button fx:id="serverBtn" onAction="#handleServerBtn" text="Run Server"/>
+                <Button fx:id="serverBtn" onAction="#handleServerBtn" text="%t3.run-server"/>
                 <Label fx:id="serverInfo" text="" />
              
             </children>

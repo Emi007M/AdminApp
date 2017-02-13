@@ -1,6 +1,7 @@
 package adminapp.presentation.currentTournamentTab.views;
 
 import adminapp.model.CurrentTournament;
+import adminapp.model.Dictionary;
 import adminapp.presentation.ViewBaseController;
 import java.net.URL;
 import java.util.ArrayList;
@@ -180,9 +181,9 @@ public class ManageBoardsController extends ViewBaseController {
     @FXML
     public void handleSaveChangesBtn() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Saving changes");
-        alert.setHeaderText("Saving changes");
-        alert.setContentText(" Are you sure, you want to save all the changes?");
+        alert.setTitle(Dictionary.getString("dialog.save.title"));
+        alert.setHeaderText(Dictionary.getString("dialog.save.info"));
+        alert.setContentText(Dictionary.getString("dialog.save.text"));
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {

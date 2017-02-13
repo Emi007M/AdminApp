@@ -13,10 +13,6 @@ import javafx.scene.layout.FlowPane;
  */
 public class NullBtnSetController implements Initializable {
 
-//    @FXML
-//    private AnchorPane rootPane;
-//    @FXML
-//    private Label titleLabel;
     @FXML
     private FlowPane mainFlow;
 

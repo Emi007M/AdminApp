@@ -14,7 +14,7 @@
           fx:controller="adminapp.presentation.currentTournamentTab.NullBtnSetController">
     <children>
      
-        <Button fx:id="changeBtn" styleClass="btnTile" text="CHOOSE TOURNAMENT" textAlignment="CENTER" wrapText="true" />
+        <Button fx:id="changeBtn" styleClass="btnTile" text="%t2.tile.choose" textAlignment="CENTER" wrapText="true" />
      
     </children>
     <FlowPane.margin>

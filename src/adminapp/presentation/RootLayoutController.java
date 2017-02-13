@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package adminapp.presentation;
 
 import adminapp.presentation.currentTournamentTab.CurrentTournamentTabController;
@@ -47,15 +42,18 @@ public class RootLayoutController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             FXMLLoader loader0 = new FXMLLoader(getClass().getResource("manageTournamentsTab/ManageTournamentsTab.fxml"));
+            loader0.setResources(resources);
             tabs.getTabs().get(0).setContent(loader0.load());
             manageTournamentsController = loader0.getController();
 
             FXMLLoader loader1 = new FXMLLoader(getClass().getResource("currentTournamentTab/CurrentTournamentTab.fxml"));
+            loader1.setResources(resources);
             tabs.getTabs().get(1).setContent(loader1.load());
             currentTournamentController = loader1.getController();
             currentTournamentController.setRootController(this);
 
             FXMLLoader loader2 = new FXMLLoader(getClass().getResource("settingsTab/SettingsTab.fxml"));
+            loader2.setResources(resources);
             tabs.getTabs().get(2).setContent(loader2.load());
             settingsController = loader2.getController();
 

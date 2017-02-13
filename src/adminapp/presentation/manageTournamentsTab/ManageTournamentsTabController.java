@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package adminapp.presentation.manageTournamentsTab;
 
+import adminapp.model.Dictionary;
 import adminapp.presentation.LayoutBaseController;
 import adminapp.presentation.manageTournamentsTab.views.NewTournamentController;
 import adminapp.presentation.manageTournamentsTab.views.TournamentListController;
@@ -37,6 +33,7 @@ public class ManageTournamentsTabController extends LayoutBaseController {
     private void setPrimaryBtnSet() {
         try {
             FXMLLoader loader = new FXMLLoader();
+            loader.setResources(Dictionary.getBundle());
             loader.setLocation(getClass().getResource("BtnSet.fxml"));
             mainFlow.getChildren().clear();
             mainFlow.getChildren().setAll((FlowPane) loader.load());
@@ -53,6 +50,7 @@ public class ManageTournamentsTabController extends LayoutBaseController {
     protected void setTournamentList() {
         try {
             FXMLLoader loader = new FXMLLoader();
+            loader.setResources(Dictionary.getBundle());
             loader.setLocation(getClass().getResource("views/TournamentList.fxml"));
             mainFlow.getChildren().clear();
             mainFlow.getChildren().setAll((FlowPane) loader.load());
@@ -70,6 +68,7 @@ public class ManageTournamentsTabController extends LayoutBaseController {
     protected void setNewTournament() {
         try {
             FXMLLoader loader = new FXMLLoader();
+            loader.setResources(Dictionary.getBundle());
             loader.setLocation(getClass().getResource("views/NewTournament.fxml"));
             mainFlow.getChildren().clear();
             mainFlow.getChildren().setAll((FlowPane) loader.load());

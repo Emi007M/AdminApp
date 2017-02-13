@@ -30,9 +30,9 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <JFXTextField fx:id="gridId" editable="false" labelFloat="true" maxWidth="91.0" minWidth="91.0" prefHeight="37.0" prefWidth="91.0" promptText="ID" text="-1" />
-        <JFXTextField fx:id="gridName" labelFloat="true" promptText="Starting List Name" GridPane.columnIndex="1" />
-        <JFXTextArea fx:id="gridDescr" labelFloat="true" maxWidth="515.0" minWidth="494.0" prefHeight="61.0" prefWidth="494.0" promptText="Description" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <JFXTextField fx:id="gridId" editable="false" labelFloat="true" maxWidth="91.0" minWidth="91.0" prefHeight="37.0" prefWidth="91.0" promptText="%t1.id" text="-1" />
+        <JFXTextField fx:id="gridName" labelFloat="true" promptText="%t1.starting-list-name" GridPane.columnIndex="1" />
+        <JFXTextArea fx:id="gridDescr" labelFloat="true" maxWidth="515.0" minWidth="494.0" prefHeight="61.0" prefWidth="494.0" promptText="%t1.description" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <Spinner opacity="0" fx:id="gridType" prefHeight="31.0" prefWidth="195.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
     </children>
 </GridPane>

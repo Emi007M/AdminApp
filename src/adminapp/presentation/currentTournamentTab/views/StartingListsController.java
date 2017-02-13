@@ -1,6 +1,7 @@
 package adminapp.presentation.currentTournamentTab.views;
 
 import adminapp.model.CurrentTournament;
+import adminapp.model.Dictionary;
 import adminapp.presentation.ViewBaseController;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXToggleButton;
@@ -47,8 +48,8 @@ public class StartingListsController extends ViewBaseController {
 
             Text descr = new Text(c.getDescr());
 
-            Text competitors = new Text("Contestants: " + c.getPlayersAmount().toString() + "     ");
-            JFXButton seeChart = new JFXButton("PRINT BRACKETS");
+            Text competitors = new Text(Dictionary.getString("t2.contestants")+": " + c.getPlayersAmount().toString() + "     ");
+            JFXButton seeChart = new JFXButton(Dictionary.getString("t2.print-brackets"));
             seeChart.setOnAction(e -> handleSeeChartBtn(c.getID()));
             TextFlow t2 = new TextFlow(competitors, seeChart);
 
@@ -77,7 +78,7 @@ public class StartingListsController extends ViewBaseController {
             matches = tmp.getChart().getBracketMatches();
         }
 
-        String title = "Lista startowa nr " + tmp.getID() + ". " + tmp.getTitle();
+        String title = Dictionary.getString("t2.starting-list")+" " + tmp.getID() + ". " + tmp.getTitle();
 
         BracketView chart = new BracketView(matches, title);
 
